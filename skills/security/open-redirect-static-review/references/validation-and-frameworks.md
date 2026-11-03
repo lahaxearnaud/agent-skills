@@ -42,6 +42,8 @@ CSP is useful defense in depth, but do not treat `default-src` or `script-src` a
 
 ## Primary references
 
+Use the bundled [offline source notes](offline-sources.md) for local summaries of these standards and advisories. The URLs below are provenance and update pointers; an audit must not depend on opening them.
+
 - [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
 - [MITRE CWE-601](https://cwe.mitre.org/data/definitions/601.html)
 - [RFC 9110 §10.2.2 — `Location`](https://datatracker.ietf.org/doc/html/rfc9110#section-10.2.2)

@@ -28,4 +28,4 @@ Trace untrusted data to SQL grammar and database execution. SQL injection requir
 | Bound `LIKE` pattern containing `%` or `_` | SQL grammar remains separate; wildcard semantics may be a distinct logic or authorization issue. |
 | Prepared statement with an interpolated table name | Value placeholders do not protect the table name; trace that fragment separately. |
 
-Consult [frameworks and controls](references/frameworks-and-controls.md) for ORM/raw API pitfalls, dialect and tool limits, and [report and scenarios](references/report-and-scenarios.md) for examples. No corpus or network access is needed at audit time.
+Consult [frameworks and controls](references/frameworks-and-controls.md), [report and scenarios](references/report-and-scenarios.md), and [offline source notes](references/offline-sources.md). Do not fetch external documentation during a review; use the local summaries, inspect dependency source already present when version-specific details matter, or mark the detail unknown. No corpus or Internet access is needed at audit time.

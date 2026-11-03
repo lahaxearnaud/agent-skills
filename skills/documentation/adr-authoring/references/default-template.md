@@ -30,7 +30,7 @@ Optional sections, when useful:
 
 ## Reference basis
 
-ADR formats vary. The template follows the concise context/decision/consequences structure associated with Michael Nygard's ADR format and the Markdown ADR (MADR) project. MADR and Microsoft guidance also describe recording alternatives, implications, and superseding decisions. Follow the repository's established template when it differs.
+ADR formats vary. The template follows the concise context/decision/consequences structure associated with Michael Nygard's ADR format and the Markdown ADR (MADR) project. MADR and Microsoft guidance also describe recording alternatives, implications, and superseding decisions. Follow the repository's established template when it differs. The linked format sources are summarized for offline use in [offline source notes](offline-sources.md); their URLs are retained for attribution and future updates.
 
 - [Michael Nygard: Documenting Architecture Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
 - [MADR: About the format](https://adr.github.io/madr/)

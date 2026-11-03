@@ -47,4 +47,4 @@ A `$_GET` value is rendered into `<div data-name="{{ name }}">` with Twig autoes
 - Treating a corpus CVE or the presence of a dependency as proof that a vulnerable path is reachable in the audited repository.
 - Mixing code facts, infrastructure assumptions, possible effects, and evidence of execution.
 
-Load [corpus cases](references/cas-et-variantes.md) when a pattern is ambiguous or to guide variant analysis. These examples are references, not evidence about the audited project.
+Load [corpus cases](references/cas-et-variantes.md) when a pattern is ambiguous or to guide variant analysis. These examples are references, not evidence about the audited project. Use the bundled [offline source notes](references/offline-sources.md) for local summaries of linked technical guidance and advisories; do not fetch their URLs during an audit. If the local notes lack a version-specific fact, inspect the dependency source already available or state the uncertainty.

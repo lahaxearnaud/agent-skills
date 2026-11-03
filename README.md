@@ -36,6 +36,10 @@ npx skills add lahaxearnaud/agent-skills --skill xss-static-review --global
 
 La commande est **`npx skills add`** : elle exécute la CLI `skills` et installe des fichiers de skill, pas une dépendance npm de l'application auditée. La prise en charge d'un agent et ses chemins d'installation dépendent de la version de la CLI et de l'agent ; consulter leur documentation. Chaque skill installe ses propres références avec elle ; la revue XSS ne nécessite pas le corpus au moment de l’audit.
 
+### Utilisation hors ligne
+
+Les références documentaires utiles à l'analyse sont synthétisées dans chaque package; les URL externes conservées servent à l'attribution et aux mises à jour, pas à la revue. Pour une machine sans accès général à Internet, transférer à l'avance le dépôt ou le dossier complet de la skill, puis l'installer depuis cette copie locale avec une CLI déjà disponible, ou copier le dossier complet vers le répertoire de skills reconnu par l'agent. Les commandes ci-dessus qui installent depuis GitHub ou téléchargent `npx` nécessitent une connexion lors de l'installation.
+
 ## Catalogue
 
 | Domaine | Skill | Utilisation |

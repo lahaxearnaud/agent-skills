@@ -20,6 +20,8 @@ This repository publishes reusable skills for coding agents, along with the sour
 
 A skill installed with the `skills` CLI must include all references needed during use. It must not depend on a repository-only corpus or machine-specific path unless the skill explicitly requires that dependency.
 
+External documentation cited in an installable skill must also have a concise, attributed local summary in that same skill package. Preserve original URLs as provenance and future-update pointers, but do not require an agent to open them during normal use. If a local summary does not support a version-specific claim, mark it unknown or inspect source already present in the reviewed repository. A machine with no general Internet access must still be able to use an already staged skill; remote installation commands are online conveniences, not runtime prerequisites.
+
 ## Working in this repository
 
 1. Inspect `git status`, the current branch and recent history before editing. Preserve existing or untracked user work. Read the README, relevant skill files and their references, and `PROVENANCE.md` when changing corpus content.
@@ -47,6 +49,7 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 | [0006](docs/adr/0006-adr-authoring-skill.md) | Création de la skill de rédaction des ADR | Ajoute une skill réutilisable pour rédiger et indexer les ADR en suivant les conventions du dépôt. |
 | [0007](docs/adr/0007-static-open-redirect-review-scope.md) | Static open redirect review scope | Définit une revue source-only des redirects serveur et navigations JavaScript, avec preuve, conditions et impact proportionnés. |
 | [0008](docs/adr/0008-static-path-traversal-review-scope.md) | Static path traversal review scope | Définit la revue statique des chemins fichier Web, y compris les handlers, loaders, archives, symlinks, préconditions et limites. |
+| [0009](docs/adr/0009-offline-skill-references.md) | Offline skill references | Requires each installable skill to bundle attributed local summaries for external references and keeps URLs as provenance rather than runtime dependencies. |
 
 ## Git and publication
 

@@ -28,9 +28,10 @@ You are maintaining a research-backed, source-only security review skill for Web
 
 1. Compare new evidence with the method in `SKILL.md` and its bundled references. Add only reusable criteria that improve source-to-sink tracing, path boundary reasoning, conditions, impacts, or uncertainty handling.
 2. Keep every operational reference inside the skill folder so `npx skills add` installs a self-contained skill. The skill must not require this research corpus at review time.
-3. Preserve static-only limits and distinguish: source-supported path escape, candidate with missing conditions, no traversal shown, and insufficient evidence. Keep read/write/delete/metadata/template/recipient-side archive impacts distinct.
-4. Use the existing [evaluation scenarios](../path-traversal-static-review/evaluation-scenarios.md) with fresh-context agents before and after substantive behavior changes when available. Save actual outputs; do not simulate results. State if baseline already succeeds and do not claim measured improvement from a small qualitative sample.
-5. Add a new scenario only for a documented gap or new important pattern. Include a negative or incomplete case to avoid turning every filename/path into a finding.
+3. For each external source the installed skill cites, maintain a concise attributed paraphrase in `skills/security/path-traversal-static-review/references/offline-sources.md`. Keep URLs for provenance, not audit-time fetching; include API/version limitations and mark uncovered behavior unknown.
+4. Preserve static-only limits and distinguish: source-supported path escape, candidate with missing conditions, no traversal shown, and insufficient evidence. Keep read/write/delete/metadata/template/recipient-side archive impacts distinct.
+5. Use the existing [evaluation scenarios](../path-traversal-static-review/evaluation-scenarios.md) with fresh-context agents before and after substantive behavior changes when available. Save actual outputs; do not simulate results. State if baseline already succeeds and do not claim measured improvement from a small qualitative sample.
+6. Add a new scenario only for a documented gap or new important pattern. Include a negative or incomplete case to avoid turning every filename/path into a finding.
 
 ## Verification and integration
 

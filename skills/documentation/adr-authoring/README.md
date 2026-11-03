@@ -9,3 +9,5 @@ Install from this repository with:
 Example request: “Use `adr-authoring` to record the decision to split the API from the web frontend, follow this repository's ADR conventions, and update the agent-facing ADR register.”
 
 The skill instructions and fallback template are in English. ADR prose follows an explicit ADR language policy when present; otherwise it uses the primary language of the repository's main README, even if historical ADRs use another language.
+
+The complete skill folder includes offline summaries of its cited ADR-format references. Their URLs remain for attribution and future maintenance and are not required to draft an ADR. For an offline machine, transfer the folder first and install from the local copy or copy the full directory into the agent's configured skills location.

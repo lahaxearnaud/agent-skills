@@ -24,4 +24,4 @@ Use this skill to make a durable decision understandable and discoverable to fut
 - If a decision is not approved, mark it `Proposed` or the project's equivalent rather than presenting it as accepted.
 - Keep the ADR concise and focused on one decision. Examples and alternatives are optional, not required filler.
 
-See `references/default-template.md` for the fallback template and its source basis.
+See `references/default-template.md` for the fallback template and `references/offline-sources.md` for attributed summaries of its general ADR-format sources. Do not fetch those URLs while drafting; the local template and repository instructions remain authoritative. If a question depends on a detail absent from the local notes, state the limitation rather than reconstructing it from a source title.
