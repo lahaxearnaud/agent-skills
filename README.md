@@ -1,6 +1,6 @@
 # Agent Skills
 
-Un catalogue de skills pour agents de code, organisé par domaine. Il comprend une skill de revue statique XSS et une méthode pour construire des skills fondées sur un corpus.
+Un catalogue de skills pour agents de code, organisé par domaine. Il comprend des skills de revue statique XSS et injection SQL, ainsi qu’une méthode pour construire des skills fondées sur un corpus.
 
 ## Installation
 
@@ -16,6 +16,9 @@ npx skills add lahaxearnaud/agent-skills --skill xss-static-review
 # Installer pour Codex et OpenCode, sans interaction
 npx skills add lahaxearnaud/agent-skills --skill xss-static-review --agent codex opencode --yes
 
+# Installer la revue statique SQL dans le projet courant
+npx skills add lahaxearnaud/agent-skills --skill sql-injection-static-review --agent codex opencode --yes
+
 # Installer pour son utilisateur plutôt que pour le projet courant
 npx skills add lahaxearnaud/agent-skills --skill xss-static-review --global
 ```
@@ -27,12 +30,14 @@ La commande est **`npx skills add`** : elle exécute la CLI `skills` et installe
 | Domaine | Skill | Utilisation |
 |---|---|---|
 | Security | [xss-static-review](skills/security/xss-static-review/SKILL.md) | Revue statique de XSS Web : PHP, Symfony, Twig, JavaScript, Vue et autres technologies. |
+| Security | [sql-injection-static-review](skills/security/sql-injection-static-review/SKILL.md) | Revue statique des injections SQL : PHP, Doctrine et autres technologies Web. |
 | Meta | [research-backed-skill-builder](skills/meta/research-backed-skill-builder/SKILL.md) | Création de skills documentées à partir de sources et de corpus traçables. |
 
 Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt et identifier les flux XSS potentiels. » La skill interdit de lancer l'application, un navigateur, des payloads ou un scanner actif. Elle distingue les flux établis statiquement des candidats dont un élément reste inconnu.
 
 ## Corpus et maintenance
 
+- [Corpus injection SQL](corpus/security/sql-injection/README.md), [prompt de maintenance SQL](maintenance/security/sql-injection/update-prompt.md) et [évaluation SQL](maintenance/security/sql-injection/evaluation.md) : cas publiés, scénarios, documentation et vérifications.
 - [Corpus XSS complet](corpus/security/xss/README.md) : avis et rapports, scénarios, sondes de référence, bonnes pratiques, normes, notes et résultats bruts de recherche.
 - [Guide de maintenance](maintenance/security/README.md) et [prompt de mise à jour](maintenance/security/prompt-maj-xss.md) : ajouter des sources et améliorer la skill sans confondre preuve statique et exécution observée.
 - [Évaluation initiale de la skill](maintenance/security/evaluation-xss-static-review.md) : essais sur extraits synthétiques et limites de validation.
