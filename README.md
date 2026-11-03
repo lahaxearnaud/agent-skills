@@ -37,7 +37,7 @@ Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt
 
 ## Corpus et maintenance
 
-- [Corpus injection SQL](corpus/security/sql-injection/README.md), [prompt de maintenance SQL](maintenance/security/sql-injection/update-prompt.md) et [évaluation SQL](maintenance/security/sql-injection/evaluation.md) : cas publiés, scénarios, documentation et vérifications.
+- [Corpus injection SQL](corpus/security/sql-injection/README.md) : 61 résumés de rapports publiés, 20 pistes à qualifier et 30 scénarios synthétiques ; voir aussi le [prompt de maintenance SQL](maintenance/security/sql-injection/update-prompt.md) et l’[évaluation SQL](maintenance/security/sql-injection/evaluation.md).
 - [Corpus XSS complet](corpus/security/xss/README.md) : avis et rapports, scénarios, sondes de référence, bonnes pratiques, normes, notes et résultats bruts de recherche.
 - [Guide de maintenance](maintenance/security/README.md) et [prompt de mise à jour](maintenance/security/prompt-maj-xss.md) : ajouter des sources et améliorer la skill sans confondre preuve statique et exécution observée.
 - [Évaluation initiale de la skill](maintenance/security/evaluation-xss-static-review.md) : essais sur extraits synthétiques et limites de validation.

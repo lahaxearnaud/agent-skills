@@ -18,3 +18,8 @@ Après modification : vérifier le frontmatter et les liens internes, exécuter 
 ## Préparer une publication
 
 Examiner le diff et les données sensibles, vérifier les noms et licences des nouveaux contenus, les liens et le résultat des évaluations. Une mise à jour du corpus ne doit pas effacer automatiquement des éléments ou augmenter le niveau de preuve d'un avis sans source. Expliquer les limites connues dans le résumé des changements.
+
+
+## Corpus et skill d’injection SQL
+
+La skill installable est [`sql-injection-static-review`](../../skills/security/sql-injection-static-review/SKILL.md). Son corpus est dans [`corpus/security/sql-injection`](../../corpus/security/sql-injection/README.md) : 61 résumés d’avis publiés, 20 pistes moins qualifiées tenues à part et 30 scénarios synthétiques. Suivre le [prompt de mise à jour SQL](sql-injection/update-prompt.md) ; ne pas convertir automatiquement une piste ou un titre d’avis en fait vérifié.

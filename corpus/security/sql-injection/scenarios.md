@@ -24,3 +24,20 @@ These examples are illustrative, not observed incidents. For each, reachability,
 | S18 | Dependency advisory + version unknown | Candidate dependency exposure only; establish version and affected use. |
 | S19 | Trusted constant SQL → query executor | No attacker control established; search caller only if value is actually variable. |
 | S20 | User input → unobserved wrapper → SQL sink | Candidate until wrapper behavior, source control and execution are demonstrated. |
+
+## Additional synthetic review patterns
+
+These additions are also hypothetical and do not increase the published-incident count.
+
+| ID | Pattern | Static review question |
+|---|---|---|
+| S21 | Django `**kwargs` dictionary built from request keys and passed to `values()`/`annotate()` | Can keys become SQL aliases, relation paths or operators? Restrict to fixed field mappings. |
+| S22 | JSON object key passed to ORM JSON path or cast helper | Can the key encode a type, identifier or SQL fragment in the dialect adapter? |
+| S23 | Request `sort` has validated column but unvalidated direction | Is the direction a closed enum before the SQL builder? |
+| S24 | A sanitized search term is interpolated into a raw ORDER BY similarity expression | Does sanitization happen before interpolation and for the exact SQL context? Bind values; allowlist structure. |
+| S25 | Workflow editor stores a SQL template with expression placeholders | Which roles can edit/trigger it, and are substitutions bound values or raw fragments? |
+| S26 | Signed-looking pagination token is decoded into sort/limit/offset fields | Is it authenticated and are fields range-checked or mapped before SQL use? |
+| S27 | Generated application template concatenates a web request's sort parameter | Does the vulnerability exist in already generated output as well as the generator source? |
+| S28 | Database helper quotes an identifier but dialect escape character is not escaped | Verify identifier quoting rules and version, or use a strict allowlist. |
+| S29 | Parser validates a query AST then executes the original raw string | Is the validated representation the one serialized and sent to the database? |
+| S30 | SQL comment or query-tag helper rewrites SQL before binding | Can comment formatting or placeholder parsing change lexical boundaries in this driver version? |

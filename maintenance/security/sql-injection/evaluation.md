@@ -22,3 +22,7 @@ The baseline already handled all five well, and the skill-guided agent identifie
 - `npx --yes skills@1.7.6 add . --list` discovered all three repository skills.
 - Installed the SQL skill from the local checkout in a temporary directory for Codex and OpenCode using `--copy --yes`; compared the installed directory with the source using `diff -qr`, with no differences.
 - Checked relative Markdown links and `git diff --check`. No target application, scanner, probe or SQL payload was run.
+
+## Corpus expansion note
+
+The later corpus expansion added 54 sourced advisory summaries, 20 triage leads and 10 synthetic scenarios; the original five-scenario comparison above predates those additions. The operational skill workflow was not changed, but its source/sink reference now calls out the newly documented key-name, workflow, pagination-token, generated-code and driver-parser patterns. This update did not rerun the five-agent scenarios or establish any accuracy change.
