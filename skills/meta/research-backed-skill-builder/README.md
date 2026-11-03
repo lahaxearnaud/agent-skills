@@ -1,13 +1,15 @@
 # Research-backed skill builder
 
-Skill pour construire ou améliorer une skill d'agent de code à partir de documentation, cas réels, outils et corpus traçable, en sécurité comme dans d'autres domaines techniques.
+A skill for creating or improving a coding-agent skill from documentation, real-world cases, tools, and a traceable corpus, for security and other technical domains.
 
-Une fois cette skill publiée sur la branche consultée par GitHub, dans un dépôt ou projet où la CLI `skills` est disponible :
+Once this skill is published on the branch read by GitHub, use it from a repository or project where the `skills` CLI is available:
 
 ```bash
 npx skills add lahaxearnaud/agent-skills --skill research-backed-skill-builder
 ```
 
-Exemple de demande : « Utilise research-backed-skill-builder pour créer une skill d'audit statique SQL avec un corpus sourcé, puis crée un commit local. » Préciser le sujet, les technologies, les contraintes de recherche et de runtime, la destination et toute publication autorisée.
+Example request: “Use research-backed-skill-builder to create a static SQL review skill with a sourced corpus, then create a local commit.” Specify the subject, technologies, research and runtime constraints, destination, and any authorized publication.
 
-Le [SKILL.md](SKILL.md) et ses références sont autonomes après installation. La méthode ne présume pas qu'un corpus ou Internet sera disponible lorsque la skill générée sera utilisée ; elle signale les limites des recherches et évaluations. La publication distante exige l'autorisation applicable.
+By default the builder writes generated skill instructions, operational references, and skill READMEs in English; an explicit user preference overrides this. It responds to users in their requested language, or otherwise the language of their request.
+
+The [SKILL.md](SKILL.md) and its references are self-contained after installation. The method does not assume that a corpus or Internet access will be available when the generated skill is used; it reports research and evaluation limitations. Remote publication requires applicable authorization.

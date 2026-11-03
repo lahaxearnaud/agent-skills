@@ -1,37 +1,37 @@
-# Sources, transformations et puits pour la revue XSS
+# Sources, transformations, and sinks for XSS review
 
-Ces listes orientent la recherche. Pour chaque occurrence, déterminer le type de donnée, l'acteur qui la contrôle, le chemin et le contexte : aucun mot-clé ne suffit à lui seul.
+These lists guide discovery. For each occurrence, determine the data type, who controls it, the path, and the context: no keyword alone is sufficient.
 
-## Sources à inventorier
+## Sources to inventory
 
-- HTTP : query, chemin, corps, formulaires, JSON, cookies, en-têtes, paramètres multiples et URL de redirection ; données venant d'une authentification SAML/OIDC et messages d'exception associés.
-- Données persistées : profils, commentaires, noms de produits, traductions modifiables, configurations éditables, CMS, titres, fichiers, résultats de recherche, tickets et publications. Distinguer contrôle d'écriture et lecteurs.
-- Fournisseurs externes : API, flux webhook, messages WebSocket, imports, fichiers, noms de fichier, métadonnées de base de données, certificats, logs, DNS et métriques. Une API interne ou une base ne confère pas automatiquement la confiance.
-- Navigateur : `location.search`, `location.hash`, `location.href`, `document.referrer`, `document.cookie`, `localStorage`, IndexedDB, réponses `fetch`/XHR, `postMessage`, attributs `data-*` et état DOM. Pour les messages, relever contrôle de `event.origin`, `event.source` et structure.
-- Vue : props et slots, router query/params/hash, données API, stores, computed/watchers, traductions, bindings, clés d'objets, état SSR et hydratation. Une prop n'est pas automatiquement contrôlée par un attaquant : remonter aux parents et à leurs sources.
-- Twig/PHP : paramètres de `render`, entités et getters, macros, inclusions, héritage, globals, traductions, fonctions/filtres et `Twig\Markup`. Suivre les valeurs à travers les différents fichiers.
+- HTTP: query, path, body, forms, JSON, cookies, headers, duplicate parameters, and redirect URLs; data from SAML/OIDC authentication and associated exception messages.
+- Persisted data: profiles, comments, product names, editable translations and settings, CMS content, titles, files, search results, tickets, and posts. Distinguish write control from readers.
+- External providers: APIs, webhooks, WebSocket messages, imports, files, filenames, database metadata, certificates, logs, DNS, and metrics. An internal API or database does not automatically confer trust.
+- Browser: `location.search`, `location.hash`, `location.href`, `document.referrer`, `document.cookie`, `localStorage`, IndexedDB, `fetch`/XHR responses, `postMessage`, `data-*` attributes, and DOM state. For messages, examine `event.origin`, `event.source`, and message structure checks.
+- Vue: props and slots, router query/params/hash, API data, stores, computed values/watchers, translations, bindings, object keys, SSR state, and hydration. A prop is not automatically attacker-controlled: trace its parents and sources.
+- Twig/PHP: `render` parameters, entities and getters, macros, includes, inheritance, globals, translations, functions/filters, and `Twig\Markup`. Trace values across files.
 
-## Propagation et changements de grammaire
+## Propagation and grammar changes
 
-Suivre affectations, interpolations, callbacks, appels, tableaux/objets et leurs **clés**, closures, événements, promesses, API, base de données, stockage, sérialisation et noms de champs. Noter explicitement les étapes inconnues.
+Trace assignments, interpolation, callbacks, calls, arrays/objects and their **keys**, closures, events, promises, APIs, databases, storage, serialization, and field names. Explicitly mark unknown steps.
 
-Repérer `decodeURIComponent`, `html_entity_decode`, `htmlspecialchars_decode`, parsing et sérialisation HTML/DOM, Markdown, XML, SVG, URL, JSON, charset et normalisation Unicode. Un décodage ne signifie pas automatiquement vulnérabilité : déterminer l'entrée, l'ordre et le puits final. Lire un attribut HTML via `dataset` peut restituer les caractères décodés après un encodage initial.
+Look for `decodeURIComponent`, `html_entity_decode`, `htmlspecialchars_decode`, HTML/DOM parsing and serialization, Markdown, XML, SVG, URL, JSON, charset handling, and Unicode normalization. Decoding does not automatically imply a vulnerability: determine the input, order, and final sink. Reading an HTML attribute through `dataset` may return decoded characters after initial encoding.
 
-Ne jamais traiter `JSON.parse`, `json_encode`, une validation de format, un stockage en base ou un retour d'API comme une désinfection HTML universelle. Les transformations après un assainissement peuvent modifier ou invalider sa garantie.
+Never treat `JSON.parse`, `json_encode`, format validation, database storage, or an API response as universal HTML sanitization. Transformations after sanitization can change or invalidate its guarantee.
 
-## Puits par contexte
+## Sinks by context
 
-| Contexte | Candidats |
+| Context | Candidates |
 |---|---|
-| HTML serveur | Twig `raw`, `autoescape false`, `Markup`, fonctions/filters `is_safe`, concaténation dans une réponse PHP, vues d'erreur ou debug, génération HTML dans des bibliothèques. |
-| HTML DOM | `innerHTML`, `outerHTML`, `insertAdjacentHTML`, `document.write`, jQuery `.html`/`.append` avec HTML, `Range.createContextualFragment`, parseurs HTML suivis d'une insertion ; `v-html`, `h(...,{innerHTML})`, JSX `innerHTML`, autres mécanismes de HTML brut. |
-| URL/navigation | `href`, `src`, `action`, `formaction`, redirections et paramètres de retour, navigation JS, URL de scripts ou iframe. Vérifier schéma et destination ; un attribut échappé ne valide pas le protocole. |
-| Code JS | Donnée dans une balise `<script>`, gestionnaire inline, `eval`, `Function`, minuteurs à chaîne, création de script et compilation de template client. Tenir compte du parseur HTML englobant. |
-| Document actif | Téléversement, aperçu ou conversion HTML/SVG/XML, `iframe.srcdoc`, réponse webhook et fichier servi inline. Examiner média, origine, sandbox et navigation directe. |
-| CSS et UI | Valeurs de style ou HTML libre pouvant modifier l'interface ; qualifier séparément la tromperie UI et ne pas affirmer XSS sans chaîne d'exécution. |
+| Server HTML | Twig `raw`, `autoescape false`, `Markup`, functions/filters marked `is_safe`, concatenation in a PHP response, error or debug views, HTML generation in libraries. |
+| DOM HTML | `innerHTML`, `outerHTML`, `insertAdjacentHTML`, `document.write`, jQuery `.html`/`.append` with HTML, `Range.createContextualFragment`, HTML parsers followed by insertion; `v-html`, `h(...,{innerHTML})`, JSX `innerHTML`, and other raw HTML mechanisms. |
+| URL/navigation | `href`, `src`, `action`, `formaction`, redirects and return parameters, JS navigation, script or iframe URLs. Check scheme and destination; an escaped attribute does not validate its protocol. |
+| JS code | Data in a `<script>` element, inline handler, `eval`, `Function`, string-based timers, script creation, and client template compilation. Account for the enclosing HTML parser. |
+| Active document | Upload, preview, or conversion of HTML/SVG/XML, `iframe.srcdoc`, webhook response, and files served inline. Examine media type, origin, sandbox, and direct navigation. |
+| CSS and UI | Style values or free HTML that can alter the interface; qualify UI deception separately and do not claim XSS without an execution chain. |
 
-`textContent` sur un élément de présentation ordinaire crée du texte, pas du HTML. Sur un élément `script`, la valeur peut être du code : vérifier le type et le cycle de vie de l'élément. Les attributs fixes non exécutables, valeurs constantes et constructions DOM structurées peuvent être sûrs ; ne pas confondre symbole et preuve.
+`textContent` on an ordinary display element creates text, not HTML. On a `script` element, the value can be code: verify the element type and lifecycle. Fixed non-executable attributes, constant values, and structured DOM construction can be safe; do not confuse a symbol with evidence.
 
-## Recherche dirigée
+## Directed search
 
-Commencer par les dossiers source, templates et configuration réellement présents. Chercher aussi les appels indirects et les bibliothèques générant du HTML ; ajuster les exclusions `vendor`, `node_modules` et bundles si une dépendance ou un artefact est pertinent. Utiliser les outils SAST présents seulement s'ils peuvent analyser localement et statiquement les fichiers ; documenter leurs limites de langage, de fichiers et d'interprocéduralité. Ne pas installer ou lancer un outil qui exécute l'application.
+Start with source, template, and configuration directories actually present. Search indirect calls and libraries that generate HTML; adjust `vendor`, `node_modules`, and bundle exclusions when a dependency or artifact matters. Use existing SAST tools only if they can analyze local files statically; document limits in language, file, and interprocedural coverage. Do not install or run a tool that executes the application.

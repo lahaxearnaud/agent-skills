@@ -1,36 +1,36 @@
-# Rapport statique et critères de preuve
+# Static report and evidence criteria
 
-## Classement des preuves
+## Evidence classification
 
-- **Flux établi statiquement** : l'acteur et la source contrôlable, les transformations et le puits sont reliés dans le code ; l'atteignabilité et les conditions sont justifiées par les éléments visibles, notamment le chargement du script client par la page et la liaison effective entre source et puits. Cela reste une conclusion statique, pas une exécution navigateur observée.
-- **Candidat à confirmer par lecture** : puits ou chemin plausible mais source, liaison, protection, configuration ou portée manquante. Indiquer précisément quoi rechercher ; ne pas le présenter comme vulnérabilité confirmée.
-- **Écarté avec raison** : constante, accès inatteignable, sortie texte ordinaire ou protection adaptée démontrée à ce contexte. Ne pas présenter comme fausse alerte si un maillon reste inconnu.
+- **Statically established flow:** the actor and controllable source, transformations, and sink are connected in code; reachability and conditions are supported by visible evidence, including the page loading the client script and the effective source-to-sink connection. This remains a static conclusion, not observed browser execution.
+- **Candidate requiring further reading:** a plausible sink or path exists but source, connection, protection, configuration, or scope is missing. State precisely what to look for; do not present it as a confirmed vulnerability.
+- **Ruled out with reason:** a constant, unreachable path, ordinary text output, or protection demonstrated for that context. Do not call it a false positive if a link remains unknown.
 
-La présence d'une source et d'un puits dans le même fichier ne prouve pas leur liaison. Une analyse statique ne prouve pas un déclenchement, une exécution navigateur, un vol de données ou un contournement de CSP. Ne pas appeler « confirmé en exploitation » un résultat purement statique.
+A source and sink in the same file do not prove a connection. Static analysis does not prove triggering, browser execution, data theft, or CSP bypass. Do not call a purely static result “confirmed exploitation.”
 
-## Fiche de constat
+## Finding template
 
-Pour chaque constat pertinent, fournir :
+For each relevant finding provide:
 
-1. **Titre et statut** : flux établi statiquement ou candidat ; gravité seulement si les éléments la justifient et en précisant les hypothèses.
-2. **Source et acteur** : fichier:ligne, contrôle réellement prouvé ou supposé, droits nécessaires.
-3. **Chemin** : fichier:ligne de chaque transformation et jonction inter-fichiers ; persistance et lecteur si applicable.
-4. **Puits et contexte final** : fichier:ligne, HTML/attribut/URL/script/SVG/DOM, mécanisme et protection absente, mal adaptée ou inconnue.
-5. **Portée** : réfléchie ou stockée si établi ; mécanisme DOM si applicable ; self/tiers/indéterminée séparément, rôle victime, interaction.
-6. **Conditions et impact** : navigateur, origine, CSP/Trusted Types et cookies **si visibles**, comportement non établi et conséquences conditionnelles. Ne pas promettre RCE, vol de cookie ou prise de compte sans chaîne documentée.
-7. **Correction** : choix concret au dernier puits, validation URL, assainissement contextualisé, isolation de document ou mise à jour, selon le cas. Ne pas affaiblir une CSP.
-8. **Validation statique après correction** : quoi relire dans le code et quels chemins alternatifs doivent être inspectés. Ne pas proposer des tests d'application ou sondes runtime ; si l'incertitude ne peut être levée par le code disponible, la maintenir.
+1. **Title and status:** statically established flow or candidate; assign severity only when supported and state assumptions.
+2. **Source and actor:** file:line, proven or assumed control, and required privileges.
+3. **Path:** file:line for each transformation and inter-file connection; persistence and reader where applicable.
+4. **Sink and final context:** file:line, HTML/attribute/URL/script/SVG/DOM, mechanism, and absent, mismatched, or unknown protection.
+5. **Scope:** reflected or stored if established; DOM mechanism where applicable; self/third-party/unknown reach separately, victim role, and interaction.
+6. **Conditions and impact:** browser, origin, CSP/Trusted Types, and cookies **if visible**; unestablished behavior and conditional consequences. Do not promise RCE, cookie theft, or account takeover without a documented chain.
+7. **Remediation:** concrete choice at the final sink, URL validation, contextual sanitization, document isolation, or upgrade as appropriate. Do not weaken CSP.
+8. **Static validation after remediation:** what code to reread and which alternative paths to inspect. Do not propose application tests or runtime probes; if the available code cannot resolve uncertainty, preserve it.
 
-## Vue d'ensemble
+## Coverage summary
 
-À la fin, indiquer périmètre et fichiers effectivement examinés, technologie, contexte de configuration et dépendances disponibles, éventuels outils statiques réellement utilisés, surfaces non couvertes et limites. Si rien n'est démontré, écrire « aucun flux XSS établi dans le périmètre examiné » plutôt que « aucune XSS ». Grouper les occurrences d'une même cause commune tout en référençant chaque puits pertinent.
+State the scope and files actually reviewed, technology, available configuration and dependencies, static tools actually used, uncovered surfaces, and limitations. If nothing is established, say “no XSS flow was established in the reviewed scope” rather than “no XSS.” Group occurrences with a common root cause while referencing each relevant sink.
 
-## Mini-grille de vérification
+## Mini verification grid
 
-- Un lien vers `javascript:` échappé HTML : candidat si le schéma et le contrôle ne sont pas validés ; l'interaction est un prérequis possible.
-- `v-html` sur constante de confiance : pas un flux XSS contrôlable sans autre preuve.
-- `sanitize(x) + userInput` envoyé à `innerHTML` : la seconde partie n'est pas couverte ; retracer aussi l'acteur et l'accès à la page.
-- Texte depuis `location.hash` vers `textContent` d'un élément ordinaire : ne pas signaler comme injection HTML, tant qu'aucune réutilisation dangereuse n'est démontrée.
-- Réflexion d'un marqueur dans du texte encodé : pas une preuve d'exécution.
-- Valeur issue d'un script nonce ou d'une page avec CSP inconnue : ne pas conclure que la CSP bloque ou autorise le vecteur sans la politique effective.
-- Une valeur éditable uniquement par son propriétaire : la qualifier self ou portée inconnue seulement après avoir cherché partage, lecteurs privilégiés, import et écriture par un tiers ; ne pas supposer une chaîne CSRF.
+- HTML-escaped `javascript:` link: candidate if scheme validation and control are not established; interaction may be required.
+- `v-html` on a trusted constant: not a controllable XSS flow without further evidence.
+- `sanitize(x) + userInput` sent to `innerHTML`: the second part is not covered; also trace actor and page access.
+- `location.hash` to `textContent` on an ordinary element: do not report HTML injection unless a later dangerous use is demonstrated.
+- A marker reflected in encoded text: not evidence of execution.
+- A value inside a nonce-bearing script or a page with unknown CSP: do not conclude that CSP blocks or allows a vector without the effective policy.
+- A value editable only by its owner: classify as self or unknown reach only after looking for sharing, privileged readers, imports, and third-party writes; do not assume a CSRF chain.

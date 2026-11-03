@@ -1,9 +1,9 @@
-# Installation et usage
+# Installation and use
 
-Cette skill portable suit le format Agent Skills : `SKILL.md` et références relatives. Elle est préparée pour être copiée dans le répertoire de skills reconnu par votre installation de Codex ou OpenCode ; l'emplacement et le mécanisme de découverte dépendent de leur configuration et version. Ce dossier est un livrable dans le workspace ; il n'a pas été installé globalement ni activé automatiquement.
+This portable skill follows the Agent Skills format: `SKILL.md` and relative references. Copy the directory into the skills location recognized by your Codex or OpenCode installation; discovery locations depend on the tool's configuration and version. This directory is a repository deliverable and is not automatically installed or globally enabled.
 
-Exemple de demande : « Utilise la skill xss-static-review pour auditer statiquement les routes, templates Twig et composants Vue de ce dépôt. » L'agent lit le `SKILL.md`, puis les références pertinentes. La skill ne lance pas l'application ni de tests dynamiques ; ses recherches de code restent locales et en lecture seule.
+Example request: “Use the xss-static-review skill to statically audit the routes, Twig templates, and Vue components in this repository.” The agent reads `SKILL.md`, then the relevant references. The skill does not run the application or dynamic tests; its code searches remain local and read-only. It responds in the user's requested language, or otherwise in the language of their request.
 
-Les références sont intégrées au dossier pour rester utilisables après copie. Elles synthétisent le corpus de ce dépôt sous `corpus/security/xss/` et pointent vers des avis et documentations publiques ; elles ne dépendent pas de l'accès à ce corpus ou à Internet pendant l'audit. Les versions et liens de sécurité peuvent évoluer.
+The references are included in this directory so they work after copying. They summarize this repository's corpus under `corpus/security/xss/` and link to public advisories and documentation; they do not require access to that corpus or to the Internet during an audit. Security versions and links can change.
 
-Pour une installation locale à un projet, recopier tout le dossier sous `.agents/skills/xss-static-review/` dans le projet cible, si cet emplacement est pris en charge par la version utilisée. OpenCode documente aussi `.opencode/skills/xss-static-review/` : [documentation officielle](https://opencode.ai/docs/skills). Vérifier la découverte dans l’outil après copie ; aucun emplacement global n’a été modifié.
+For a project-local installation, copy the entire directory to `.agents/skills/xss-static-review/` in the target project if supported by the tool version. OpenCode also documents `.opencode/skills/xss-static-review/`: [official documentation](https://opencode.ai/docs/skills). Verify discovery in the tool after copying; no global location is changed by these instructions.

@@ -1,20 +1,20 @@
-# Organiser un corpus réutilisable
+# Organize a reusable corpus
 
-Adapter aux conventions du dépôt ; à défaut, utiliser `corpus/<domaine>/<sujet>/` pour le corpus et `maintenance/<domaine>/` pour sa méthode d'entretien. Éviter les chemins absolus dans les livrables. Le corpus reste disponible aux mainteneurs mais la skill installée doit embarquer les références nécessaires à son usage, sauf demande contraire.
+Adapt to repository conventions; otherwise use `corpus/<domain>/<topic>/` for the corpus and `maintenance/<domain>/` for its maintenance method. Avoid machine-specific absolute paths in deliverables. The corpus remains available to maintainers, but the installed skill must include the references it needs unless requested otherwise.
 
-## Structure minimale
+## Minimum structure
 
-- Un index ou README indique sujet, date, périmètre, méthode de recherche, nombre d'entrées par statut, sources, doublons possibles, exclusions, lacunes et liens relatifs vers les fichiers de détail.
-- Des fiches ou lignes structurées regroupent les cas et exemples ; utiliser Markdown, CSV ou JSON selon les besoins. Une collection de titres identifie des pistes, pas un ensemble d'analyses confirmées.
-- Une section décrit les technologies et mécanismes récurrents, protections ou pratiques et leurs limites ; lier les conclusions aux sources ou marquer les inférences.
-- Un plan de maintenance explique comment enrichir le corpus, vérifier les sources, retrouver les changements liés à la skill et préserver les données préexistantes.
+- An index or README states topic, date, scope, research method, counts by status, sources, possible duplicates, exclusions, gaps, and relative links to detail files.
+- Structured entries or rows group cases and examples; use Markdown, CSV, or JSON as appropriate. A collection of titles identifies leads, not a set of confirmed analyses.
+- A section describes recurring technologies and mechanisms, protections or practices, and their limits; link conclusions to sources or label inferences.
+- A maintenance plan explains how to enrich the corpus, verify sources, trace changes related to the skill, and preserve pre-existing data.
 
-## Champs d'une fiche
+## Entry fields
 
-Renseigner lorsque c'est pertinent : `id`, `titre`, `categorie`, `source_url`, `auteur`, `date_publication`, `date_consultation`, `nature_source`, `statut_verification`, `technologie`, `versions`, `acteurs`, `conditions`, `entree`, `transformations`, `destination`, `mecanisme`, `impact_attribue`, `correction`, `preuve`, `limites` et `relations_doublons`. Les valeurs non connues restent explicitement inconnues ; ne pas inventer de schéma complet lorsqu'un champ est sans objet.
+When relevant, record `id`, `titre`, `categorie`, `source_url`, `auteur`, `date_publication`, `date_consultation`, `nature_source`, `statut_verification`, `technologie`, `versions`, `acteurs`, `conditions`, `entree`, `transformations`, `destination`, `mecanisme`, `impact_attribue`, `correction`, `preuve`, `limites`, and `relations_doublons`. Unknown values remain explicitly unknown; do not invent a complete schema when a field is inapplicable.
 
-Pour la sécurité, distinguer vulnérabilité, prérequis, acteurs, surfaces, exploitation observée ou alléguée, impact conditionnel, protection et limites ; si des attaques ou outils sont documentés, ajouter contexte et portée des résultats. Pour les autres domaines, adapter ces champs aux symptômes, conditions, effets, diagnostics et correctifs.
+For security, distinguish vulnerability, prerequisites, actors, surfaces, observed or alleged exploitation, conditional impact, protections, and limitations; if documenting attacks or tools, add context and what results prove. For other domains, adapt fields to symptoms, conditions, effects, diagnostics, and fixes.
 
-## Mettre à jour un corpus existant
+## Update an existing corpus
 
-Lire les index et conventions, conserver le contenu et les sources ; ajouter ou corriger de façon traçable. Dédupliquer par identifiant, indiquer les entrées liées et la possibilité de doublons non établis. Garder les scénarios hypothétiques, les labs et les incidents indépendants clairement séparés. Une correction doit expliciter son origine et ne pas effacer silencieusement des informations antérieures ou des limitations.
+Read existing indexes and conventions, preserving content and sources; add or correct information with traceability. Deduplicate by identifier, note related entries and possible unestablished duplicates. Keep hypothetical scenarios, labs, and independent incidents clearly separate. A correction must state its origin and must not silently erase previous information or limitations.
