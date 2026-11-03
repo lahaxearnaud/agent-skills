@@ -9,10 +9,12 @@ This repository publishes reusable skills for coding agents, along with the sour
 | Path | Purpose |
 |---|---|
 | `skills/security/<name>/` | Installable security-review skills and their self-contained operational references. |
+| `skills/documentation/<name>/` | Installable documentation and engineering-process skills. |
 | `skills/meta/` | Skills for creating and maintaining other research-backed skills. |
 | `corpus/security/<topic>/` | Research material, published cases, leads, synthetic scenarios and source notes. |
 | `maintenance/security/` | Corpus update prompts, maintenance guides and skill evaluations. |
 | `maintenance/meta/` | Evaluations and maintenance notes for meta skills. |
+| `maintenance/documentation/` | Evaluations and maintenance notes for documentation skills. |
 | `docs/adr/` | Accepted architecture decisions and the ADR template. |
 | `README.md` | Human-facing repository overview, in French. |
 
@@ -31,6 +33,8 @@ A skill installed with the `skills` CLI must include all references needed durin
 
 **Every architectural decision about this repository must have an ADR in [`docs/adr/`](docs/adr/).** An architectural decision is a durable choice about repository structure, skill packaging, corpus evidence and provenance, analysis scope, authoring language, or the contribution and publication workflow. Before or alongside implementing a new decision, create an ADR from [`docs/adr/0000-template.md`](docs/adr/0000-template.md). Give it the next unused four-digit number and a short kebab-case filename.
 
+Use the [adr-authoring skill](skills/documentation/adr-authoring/SKILL.md) when drafting, superseding, or indexing an ADR. This section and the required structure in the repository's ADR template remain authoritative.
+
 Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR that links to the superseded record and update the index below in the same change. Every ADR must appear in this index as a Markdown link with its exact title and a brief description, so agents can discover the rationale without searching the repository.
 
 | ADR | Title | Description |
@@ -40,6 +44,8 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 | [0003](docs/adr/0003-static-security-review-scope.md) | Static security review scope | Keeps the XSS and SQL injection review skills source-based, with no target application or active scanner execution. |
 | [0004](docs/adr/0004-skill-language-policy.md) | Skill language policy | Writes reusable skill instructions in English by default while preserving the user's requested response language. |
 | [0005](docs/adr/0005-git-and-publication-workflow.md) | Git and publication workflow | Preserves local work, favors targeted commits, and requires explicit authorization before pushing or publishing. |
+| [0006](docs/adr/0006-adr-authoring-skill.md) | Création de la skill de rédaction des ADR | Ajoute une skill réutilisable pour rédiger et indexer les ADR en suivant les conventions du dépôt. |
+| [0007](docs/adr/0007-static-open-redirect-review-scope.md) | Static open redirect review scope | Définit une revue source-only des redirects serveur et navigations JavaScript, avec preuve, conditions et impact proportionnés. |
 
 ## Git and publication
 
