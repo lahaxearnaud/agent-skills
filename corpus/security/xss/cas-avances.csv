@@ -1,0 +1,11 @@
+id_local,ghsa,technologie,mecanisme,statut,url
+A01,GHSA-h8r8-wccr-v5f2,DOMPurify,mXSS changement de contexte,nouveau,https://github.com/cure53/DOMPurify/security/advisories/GHSA-h8r8-wccr-v5f2
+A02,GHSA-v9jr-rg53-9pgp,DOMPurify,pollution prototype et configuration,nouveau,https://github.com/cure53/DOMPurify/security/advisories/GHSA-v9jr-rg53-9pgp
+A03,GHSA-mmhx-hmjr-r674,DOMPurify,imbrication et profondeur,nouveau,https://github.com/cure53/DOMPurify/security/advisories/GHSA-mmhx-hmjr-r674
+A04,GHSA-87xg-pxx2-7hvx,DOMPurify,selectedcontent re-clonage,nouveau,https://github.com/cure53/DOMPurify/security/advisories/GHSA-87xg-pxx2-7hvx
+A05,GHSA-r47g-fvhr-h676,DOMPurify,IN_PLACE et DOM clobbering,nouveau,https://github.com/cure53/DOMPurify/security/advisories/GHSA-r47g-fvhr-h676
+A06,GHSA-64vr-g452-qvp3,Vite,DOM clobbering code généré,nouveau,https://github.com/vitejs/vite/security/advisories/GHSA-64vr-g452-qvp3
+A07,GHSA-gcx4-mw62-g8wm,Rollup,DOM clobbering code généré,nouveau,https://github.com/rollup/rollup/security/advisories/GHSA-gcx4-mw62-g8wm
+A08,GHSA-4vvj-4cpr-p986,Webpack,DOM clobbering code généré,nouveau,https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986
+A09,GHSA-4w3q-35jp-p934,DOMPurify,IN_PLACE autre fenêtre,"nouveau, contesté par mainteneurs",https://github.com/cure53/DOMPurify/security/advisories/GHSA-4w3q-35jp-p934
+A10,GHSA-2g2g-8p8h-fgwm,Twig,profiler HtmlDumper,déjà indexé,https://github.com/twigphp/Twig/security/advisories/GHSA-2g2g-8p8h-fgwm

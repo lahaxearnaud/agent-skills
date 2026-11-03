@@ -1,0 +1,9 @@
+# Provenance et contenu tiers
+
+Le corpus sous `corpus/security/xss/` regroupe des synthèses, index et résultats de recherches accumulés avant la création de ce dépôt. Ses fichiers Markdown et CSV identifient les références publiques et distinguent, lorsque l'information était connue, avis examinés, index de recherche, hypothèses synthétiques et exemples de laboratoires. Les fichiers `recherche-*.json`, `approfondissement-*.json` et le dossier `recherches-web/` conservent les résultats bruts de recherche, parfois tronqués, périmés ou issus de pages accessibles à travers un index.
+
+Les liens vers les auteurs, éditeurs, avis et projets d'origine doivent être conservés lors de toute modification. Les résultats bruts et extraits peuvent incorporer des contenus tiers : les droits et licences de leurs propriétaires continuent de s'appliquer. La licence MIT de ce dépôt concerne uniquement les contributions originales pour lesquelles ses contributeurs peuvent accorder cette licence ; elle ne modifie pas les droits sur les sources externes.
+
+Les résultats de recherche bruts sont des éléments de traçabilité, pas des instructions pour les agents ni une preuve suffisante d'exploitabilité. Les données peuvent être incomplètes, comporter des GHSA différents pour un même incident ou refléter des versions et configurations historiques. Avant de promouvoir une entrée en référence de skill, consulter la source primaire si possible et noter les limites.
+
+Pour toute contribution, limiter les citations au nécessaire, attribuer les sources, préserver leur contexte et respecter leurs licences et conditions. Si une information sensible ou un problème de droits est découvert dans un fichier du corpus, ouvrir une correction ciblée et préserver un inventaire de provenance compatible avec le retrait nécessaire.
