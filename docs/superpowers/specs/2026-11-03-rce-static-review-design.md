@@ -10,6 +10,7 @@ Add an installable security skill that helps a coding agent find and assess remo
 ## Goals
 
 - Cover remote execution families rather than treating OS command injection as the only RCE mechanism.
+- Include at least 40 distinct, source-checked public vulnerability cases in the corpus; search-result leads and synthetic/lab examples do not count toward this minimum.
 - Give the reviewer one consistent source → transformations/guards → interpreter or execution sink → reachability/conditions workflow.
 - Distinguish demonstrated unsafe flows, incomplete candidates, indirect execution chains, and non-RCE injection or code-loading paths.
 - Package the skill with all operational references and paraphrased technical source notes so an installed copy does not require a corpus checkout or Internet access.
@@ -51,7 +52,7 @@ The proposed choice is approach B because the request is to cover all RCE types 
 ## Proposed repository deliverables
 
 - `skills/security/rce-static-review/`: installable English skill, family-specific references, offline source notes, and README.
-- `corpus/security/remote-code-execution/`: index, research cases by family, leads, standards/tool notes, patterns, and safe/incomplete/synthetic examples. Report verified-case counts by family and source status; do not merge duplicates or fill gaps with unverified titles.
+- `corpus/security/remote-code-execution/`: index, at least 40 distinct source-checked public vulnerability cases grouped by family, separate leads, standards/tool notes, patterns, and safe/incomplete/synthetic examples. Report case counts by family and source status; do not merge duplicates or fill the minimum with unverified titles.
 - `maintenance/security/remote-code-execution/`: source collection and qualification prompt, update method, evaluation scenarios, and recorded outputs.
 - Root README/catalog and `AGENTS.md` updates, `PROVENANCE.md` update, and an ADR describing the accepted RCE skill scope and packaging if implementation is approved.
 
@@ -67,4 +68,4 @@ Validate Markdown links and skill metadata, confirm `npx skills add . --list`, i
 
 The broad taxonomy improves coverage of RCE chains but increases corpus size and the chance of overclaiming from a dangerous-looking API. Family-specific evidence requirements, clear exclusions, source status, version conditions, and negative examples are required to control that risk. The corpus will be a curated snapshot, not an exhaustive catalogue of every RCE issue.
 
-The web/server boundary and the modular single-skill structure are the proposed design decisions for approval. The design does not prescribe a minimum corpus count; case volume should be reported by family and evidence level, and coverage gaps should remain visible.
+The web/server boundary and the modular single-skill structure are the proposed design decisions for approval. The user-approved minimum is 40 distinct, source-checked public vulnerability cases. Report case volume by family and evidence level, keep leads/labs/synthetic examples separate from that count, and leave coverage gaps visible rather than manufacturing records.
