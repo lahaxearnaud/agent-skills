@@ -1,4 +1,6 @@
-# Maintenance de la skill XSS
+# Maintenance des skills de sécurité
+
+## Maintenance du corpus XSS
 
 La source de travail est le [corpus versionné](../../corpus/security/xss/README.md) ; la skill installable est dans [`skills/security/xss-static-review`](../../skills/security/xss-static-review/SKILL.md). La skill distribuée reste autonome : ses références se trouvent sous son propre dossier et ne dépendent ni du corpus ni d'un chemin absolu.
 
@@ -18,6 +20,10 @@ Après modification : vérifier le frontmatter et les liens internes, exécuter 
 ## Préparer une publication
 
 Examiner le diff et les données sensibles, vérifier les noms et licences des nouveaux contenus, les liens et le résultat des évaluations. Une mise à jour du corpus ne doit pas effacer automatiquement des éléments ou augmenter le niveau de preuve d'un avis sans source. Expliquer les limites connues dans le résumé des changements.
+
+## Reproduction isolée d'un doute de vulnérabilité
+
+La skill [isolated-vulnerability-reproduction](../../skills/security/isolated-vulnerability-reproduction/SKILL.md) et son runner permettent de valider un seul comportement de code avec un POC jetable. Le runner n'exécute que dans Docker local avec une image officielle épinglée, sans montage hôte. Il copie uniquement un espace de travail réduit vers un `tmpfs` du conteneur. Ne réinstallez pas le graphe complet de dépendances; si une seule fonction de dépendance est pertinente, copiez-la depuis les sources locales avec ses seuls auxiliaires indispensables. Le [prompt de maintenance](isolated-vulnerability-reproduction/update-prompt.md), les scénarios et l'évaluation documentent les mises à jour et les limites.
 
 
 ## Corpus et skill d’injection SQL

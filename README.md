@@ -35,6 +35,9 @@ npx skills add lahaxearnaud/agent-skills --skill rce-static-review --agent codex
 
 # Installer pour son utilisateur plutôt que pour le projet courant
 npx skills add lahaxearnaud/agent-skills --skill xss-static-review --global
+
+# Installer la reproduction isolée de PoC jetables
+npx skills add lahaxearnaud/agent-skills --skill isolated-vulnerability-reproduction --agent codex opencode --yes
 ```
 
 La commande est **`npx skills add`** : elle exécute la CLI `skills` et installe des fichiers de skill, pas une dépendance npm de l'application auditée. La prise en charge d'un agent et ses chemins d'installation dépendent de la version de la CLI et de l'agent ; consulter leur documentation. Chaque skill installe ses propres références avec elle ; la revue XSS ne nécessite pas le corpus au moment de l’audit.
@@ -52,10 +55,13 @@ Les références documentaires utiles à l'analyse sont synthétisées dans chaq
 | Security | [open-redirect-static-review](skills/security/open-redirect-static-review/SKILL.md) | Revue statique des redirects serveur et navigations JavaScript externes : PHP, Symfony, JavaScript, Vue, OAuth et autres technologies Web. |
 | Security | [path-traversal-static-review](skills/security/path-traversal-static-review/SKILL.md) | Revue statique des traversées de chemins fichier : lectures/écritures/suppressions, fichiers statiques, templates, archives Zip Slip et symlinks. |
 | Security | [rce-static-review](skills/security/rce-static-review/SKILL.md) | Revue statique des chemins RCE à partir du code : processus/commandes, évaluation dynamique, templates, désérialisation, chargement et chaînes différées. |
+| Security | [isolated-vulnerability-reproduction](skills/security/isolated-vulnerability-reproduction/SKILL.md) | Reproduction jetable et minimale d'un doute, dans Docker local avec image officielle épinglée, sans lancer le projet ni restaurer ses dépendances. |
 | Documentation | [adr-authoring](skills/documentation/adr-authoring/SKILL.md) | Rédige, met à jour et indexe les ADR en respectant les conventions du dépôt. |
 | Meta | [research-backed-skill-builder](skills/meta/research-backed-skill-builder/SKILL.md) | Création de skills documentées à partir de sources et de corpus traçables. |
 
 Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt et identifier les flux XSS potentiels. » La skill XSS interdit de lancer l'application, un navigateur, des payloads ou un scanner actif. La skill `open-redirect-static-review` suit séparément les réponses `Location` et les navigations JavaScript automatiques, en distinguant les liens cliquables et les cas incomplets. La skill `rce-static-review` reste également source-only et vérifie les chemins réseau vers les frontières d'exécution sans lancer l'application ni des scanners.
+
+`isolated-vulnerability-reproduction` est une skill séparée, activée uniquement quand une revue a déjà identifié un doute précis et qu'une preuve minimale est faisable. Elle interdit les cibles réelles, l'exécution sur l'hôte, les montages de chemins hôte et la réinstallation du graphe de dépendances. Quand seule une fonction d'une dépendance est nécessaire, elle demande de copier cette fonction et ses seuls auxiliaires indispensables depuis les sources locales. Le runner transfère le petit espace de travail vers un `tmpfs` interne à un conteneur éphémère.
 
 ## Corpus et maintenance
 
@@ -63,6 +69,7 @@ Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt
 - [Corpus Open Redirect](corpus/security/open-redirect/README.md) : 60 fiches de CVE/avis publics dédupliquées, avec conditions, technologies, flux, impacts, protections, normes et limites ; des pistes et cas XSS/navigation adjacents sont classés à part. Voir le [prompt de mise à jour](maintenance/security/open-redirect/update-prompt.md) et l’[évaluation de la skill](maintenance/security/open-redirect-static-review/evaluation.md).
 - [Corpus Path Traversal](corpus/security/path-traversal/README.md) : 50 cas publiés Web/application, plus des cas adjacents d’archives/outils et un avis non vérifié tenu à part. Les fiches distinguent les préconditions, les types d’opérations, les correctifs incomplets, les symlinks et les impacts côté serveur ou destinataire. Voir le [prompt de mise à jour](maintenance/security/path-traversal/update-prompt.md) et l’[évaluation](maintenance/security/path-traversal-static-review/evaluation.md).
 - [Corpus RCE](corpus/security/remote-code-execution/README.md) : 55 cas source-checkés répartis entre processus/commandes, évaluation dynamique, templates/expressions, désérialisation et chargement/chaînes d'exécution. Les pistes non qualifiées restent à part. Voir le [prompt de mise à jour](maintenance/security/remote-code-execution/update-prompt.md), les [scénarios statiques](maintenance/security/remote-code-execution/evaluation-scenarios.md) et le [bilan d'évaluation](maintenance/security/remote-code-execution/evaluation.md).
+- [Reproduction isolée de PoC](skills/security/isolated-vulnerability-reproduction/SKILL.md) : méthode et runner jetables pour valider un doute de code dans Docker local, avec ressources limitées et sans montage hôte. Voir le [prompt de maintenance](maintenance/security/isolated-vulnerability-reproduction/update-prompt.md), les [scénarios d'évaluation](maintenance/security/isolated-vulnerability-reproduction/evaluation-scenarios.md) et le [bilan d'évaluation](maintenance/security/isolated-vulnerability-reproduction/evaluation.md).
 - [Corpus XSS complet](corpus/security/xss/README.md) : avis et rapports, scénarios, sondes de référence, bonnes pratiques, normes, notes et résultats bruts de recherche.
 - [Guide de maintenance](maintenance/security/README.md) et [prompt de mise à jour](maintenance/security/prompt-maj-xss.md) : ajouter des sources et améliorer la skill sans confondre preuve statique et exécution observée.
 - [Évaluation initiale de la skill](maintenance/security/evaluation-xss-static-review.md) : essais sur extraits synthétiques et limites de validation.
