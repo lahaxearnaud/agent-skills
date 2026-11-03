@@ -27,3 +27,7 @@ La skill installable est [`sql-injection-static-review`](../../skills/security/s
 ## Corpus et skill Open Redirect
 
 La skill installable est [`open-redirect-static-review`](../../skills/security/open-redirect-static-review/SKILL.md). Le [corpus Open Redirect](../../corpus/security/open-redirect/README.md) contient 60 entrées publiques distinctes, ainsi que des pistes moins qualifiées, des cas voisins et une taxonomie de sources, puits, protections et limites CSP. Suivre le [prompt de mise à jour](open-redirect/update-prompt.md), garder les cas voisins et les pistes séparés, et ne pas attribuer de sévérité ni d’impact OAuth sans preuve.
+
+## Corpus et skill Path Traversal
+
+La skill installable est [`path-traversal-static-review`](../../skills/security/path-traversal-static-review/SKILL.md). Le [corpus Path Traversal](../../corpus/security/path-traversal/README.md) contient 50 fiches de rapports Web/application publiés, des cas adjacents de bibliothèques d’archives et d’outils, et une piste non vérifiée exclue du compte. Suivre le [prompt de mise à jour](path-traversal/update-prompt.md), relier les correctifs incomplets aux avis initiaux et distinguer les opérations read/write/delete, l’archive générée pour un destinataire et les impacts runtime non établis par une revue statique.
