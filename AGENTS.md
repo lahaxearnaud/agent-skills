@@ -45,6 +45,7 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 | [0004](docs/adr/0004-skill-language-policy.md) | Skill language policy | Writes reusable skill instructions in English by default while preserving the user's requested response language. |
 | [0005](docs/adr/0005-git-and-publication-workflow.md) | Git and publication workflow | Preserves local work, favors targeted commits, and requires explicit authorization before pushing or publishing. |
 | [0006](docs/adr/0006-adr-authoring-skill.md) | Création de la skill de rédaction des ADR | Ajoute une skill réutilisable pour rédiger et indexer les ADR en suivant les conventions du dépôt. |
+| [0007](docs/adr/0007-static-open-redirect-review-scope.md) | Static open redirect review scope | Définit une revue source-only des redirects serveur et navigations JavaScript, avec preuve, conditions et impact proportionnés. |
 
 ## Git and publication
 

@@ -23,3 +23,7 @@ Examiner le diff et les données sensibles, vérifier les noms et licences des n
 ## Corpus et skill d’injection SQL
 
 La skill installable est [`sql-injection-static-review`](../../skills/security/sql-injection-static-review/SKILL.md). Son corpus est dans [`corpus/security/sql-injection`](../../corpus/security/sql-injection/README.md) : 61 résumés d’avis publiés, 20 pistes moins qualifiées tenues à part et 30 scénarios synthétiques. Suivre le [prompt de mise à jour SQL](sql-injection/update-prompt.md) ; ne pas convertir automatiquement une piste ou un titre d’avis en fait vérifié.
+
+## Corpus et skill Open Redirect
+
+La skill installable est [`open-redirect-static-review`](../../skills/security/open-redirect-static-review/SKILL.md). Le [corpus Open Redirect](../../corpus/security/open-redirect/README.md) contient 60 entrées publiques distinctes, ainsi que des pistes moins qualifiées, des cas voisins et une taxonomie de sources, puits, protections et limites CSP. Suivre le [prompt de mise à jour](open-redirect/update-prompt.md), garder les cas voisins et les pistes séparés, et ne pas attribuer de sévérité ni d’impact OAuth sans preuve.

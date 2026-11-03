@@ -24,6 +24,9 @@ npx skills add lahaxearnaud/agent-skills --skill sql-injection-static-review --a
 # Installer la skill de rédaction et d'indexation des ADR
 npx skills add lahaxearnaud/agent-skills --skill adr-authoring --agent codex opencode --yes
 
+# Installer la revue statique des Open Redirect
+npx skills add lahaxearnaud/agent-skills --skill open-redirect-static-review --agent codex opencode --yes
+
 # Installer pour son utilisateur plutôt que pour le projet courant
 npx skills add lahaxearnaud/agent-skills --skill xss-static-review --global
 ```
@@ -36,14 +39,16 @@ La commande est **`npx skills add`** : elle exécute la CLI `skills` et installe
 |---|---|---|
 | Security | [xss-static-review](skills/security/xss-static-review/SKILL.md) | Revue statique de XSS Web : PHP, Symfony, Twig, JavaScript, Vue et autres technologies. |
 | Security | [sql-injection-static-review](skills/security/sql-injection-static-review/SKILL.md) | Revue statique des injections SQL : PHP, Doctrine et autres technologies Web. |
+| Security | [open-redirect-static-review](skills/security/open-redirect-static-review/SKILL.md) | Revue statique des redirects serveur et navigations JavaScript externes : PHP, Symfony, JavaScript, Vue, OAuth et autres technologies Web. |
 | Documentation | [adr-authoring](skills/documentation/adr-authoring/SKILL.md) | Rédige, met à jour et indexe les ADR en respectant les conventions du dépôt. |
 | Meta | [research-backed-skill-builder](skills/meta/research-backed-skill-builder/SKILL.md) | Création de skills documentées à partir de sources et de corpus traçables. |
 
-Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt et identifier les flux XSS potentiels. » La skill interdit de lancer l'application, un navigateur, des payloads ou un scanner actif. Elle distingue les flux établis statiquement des candidats dont un élément reste inconnu.
+Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt et identifier les flux XSS potentiels. » La skill XSS interdit de lancer l'application, un navigateur, des payloads ou un scanner actif. La skill `open-redirect-static-review` suit séparément les réponses `Location` et les navigations JavaScript automatiques, en distinguant les liens cliquables et les cas incomplets.
 
 ## Corpus et maintenance
 
 - [Corpus injection SQL](corpus/security/sql-injection/README.md) : 61 résumés de rapports publiés, 20 pistes à qualifier et 30 scénarios synthétiques ; voir aussi le [prompt de maintenance SQL](maintenance/security/sql-injection/update-prompt.md) et l’[évaluation SQL](maintenance/security/sql-injection/evaluation.md).
+- [Corpus Open Redirect](corpus/security/open-redirect/README.md) : 60 fiches de CVE/avis publics dédupliquées, avec conditions, technologies, flux, impacts, protections, normes et limites ; des pistes et cas XSS/navigation adjacents sont classés à part. Voir le [prompt de mise à jour](maintenance/security/open-redirect/update-prompt.md) et l’[évaluation de la skill](maintenance/security/open-redirect-static-review/evaluation.md).
 - [Corpus XSS complet](corpus/security/xss/README.md) : avis et rapports, scénarios, sondes de référence, bonnes pratiques, normes, notes et résultats bruts de recherche.
 - [Guide de maintenance](maintenance/security/README.md) et [prompt de mise à jour](maintenance/security/prompt-maj-xss.md) : ajouter des sources et améliorer la skill sans confondre preuve statique et exécution observée.
 - [Évaluation initiale de la skill](maintenance/security/evaluation-xss-static-review.md) : essais sur extraits synthétiques et limites de validation.
