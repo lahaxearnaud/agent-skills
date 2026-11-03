@@ -1,6 +1,6 @@
 # Static Remote Code Execution Review Skill — Design
 
-**Status:** Proposed for review  
+**Status:** Accepted; implementation tracked by [ADR-0010](../../adr/0010-static-rce-review-scope.md)
 **Date:** 2026-11-03
 
 ## Intent

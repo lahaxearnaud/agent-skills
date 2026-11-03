@@ -6,8 +6,6 @@ This is a curated, source-checked snapshot of public vulnerabilities that demons
 
 The case files contain **55 distinct public vulnerability records** as of 2026-11-03.
 
-| Execution family | Cases |
-| --- | ---: |
 | Execution family | Total | GitHub Reviewed | Maintainer GitHub | Vendor |
 | --- | ---: | ---: | ---: | ---: |
 | Command and process execution | 10 | 9 | 1 | 0 |

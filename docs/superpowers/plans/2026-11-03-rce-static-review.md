@@ -224,7 +224,7 @@ Add the skill installation command and catalog row to root README; document the 
 
 Run `git diff --check`; check all repository Markdown relative links; confirm at least 40 distinct qualified cases and all package external sources summarized; run `npx skills add . --list`; install `rce-static-review` from a temporary local checkout and compare every installed file byte-for-byte with the package. Review the diff for unrelated files, unverified claims, sensitive data, or copied third-party text.
 
-- [ ] **Step 3: Commit the scoped deliverable**
+- [x] **Step 3: Commit the scoped deliverable**
 
 Stage only ADR-0010, corpus/security/RCE materials, the `rce-static-review` package, its maintenance materials, and the necessary README/provenance/index updates. Commit with `feat: add static RCE review skill and corpus`. Then fast-forward local `main` to the completed feature branch and push `origin main`, which the user explicitly requested; verify the remote ref equals the tested commit.
 
