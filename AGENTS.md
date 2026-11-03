@@ -54,6 +54,7 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 | [0011](docs/adr/0011-conditional-primary-source-consultation.md) | Conditional primary-source consultation | Makes offline notes the default, permits focused primary-source lookup when a missing material detail affects a review, and keeps Internet access optional. |
 | [0012](docs/adr/0012-isolated-poc-reproduction.md) | Reproduction isolée et minimale de vulnérabilités | Définit une validation jetable par POC minimal dans Docker local, sans dépendances réinstallées ni montage de chemins hôte; les autorisations d'image sont précisées par ADR-0013. |
 | [0013](docs/adr/0013-configurable-docker-image-allowlist.md) | Liste d'autorisation configurable des images Docker | Limite les dépôts par défaut et autorise une liste utilisateur de registres/dépôts complets, avec joker uniquement dans le tag et digest toujours vérifié. |
+| [0014](docs/adr/0014-isolated-poc-test-templates.md) | Squelettes de tests pour les POC isolés | Fournit quatre squelettes installables par runtime/surface avec sorties témoin normalisées; les tests navigateur restent locaux et préservent le profil Chromium et Docker. |
 
 ## Git and publication
 
