@@ -1,6 +1,6 @@
 # ADR format sources (offline notes)
 
-These source notes are bundled so an ADR can be drafted without opening a web page. They paraphrase the linked material and are not full reproductions. The original URLs are retained for attribution and later maintenance; they are not required during normal use. The repository's [`0000-template.md`](default-template.md) and `AGENTS.md` take precedence over general formats.
+These attributed source notes are bundled so an ADR can be drafted offline. They paraphrase the linked material and are not full reproductions. The original URLs are optional verification/update pointers if a material ADR-format question is not answered here; consulting them is not required. The repository's [`0000-template.md`](default-template.md) and `AGENTS.md` take precedence over general formats. Never send private repository content to an external service.
 
 Research snapshot: **2026-11-03**.
 

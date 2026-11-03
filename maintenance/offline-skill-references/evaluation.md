@@ -35,3 +35,16 @@ The evaluator concluded that all six prompts could be answered from package-loca
 ## Limits
 
 Six retrieval prompts cover representative documentation gaps only. They do not establish completeness of all technical knowledge, version applicability, or security findings. The external URLs remain useful to maintainers on a connected machine but are not an audit-time dependency.
+
+## Conditional lookup policy update
+
+The tables above record the earlier six-scenario package-local retrieval check. The four dedicated online, offline, and privacy-boundary scenarios in [source-consultation-scenarios.md](source-consultation-scenarios.md) have not been run as a complete evaluation. A separate baseline/current comparison was run for the ZIP case below; it tests reference sufficiency and restraint, not security detection accuracy.
+
+### Baseline/current ZIP reference comparison (2026-11-03)
+
+**Prompt:** An uploaded archive reaches `ZipArchive::extractTo()` on Windows with upstream PHP 8.0.10; determine whether CVE-2021-21706 applies, identify what remains unknown, and decide whether to consult a source. Two read-only evaluators received the same scenario, one the committed baseline and one the updated skill. No reviewed project code, target, application, or scanner was supplied or run.
+
+- **Baseline:** “The baseline contains no CVE-2021-21706 affected-version information, so it supports neither ‘applies’ nor ‘does not apply’ for upstream PHP 8.0.10.” It retained uncertainty and recommended local build inspection, but its blanket no-network rule prevented checking the primary advisory.
+- **Updated skill:** “The CVE applies to an unpatched upstream PHP 8.0.10 runtime on Windows.” It cited the bundled #81420/CVE note and kept the actual PHP/`ext-zip` build and any vendor backport status unknown. It did not browse because the local note resolved the stated upstream version question; it used no private material and made no target request.
+
+This single scenario shows that the new note supports a more specific upstream conclusion while retaining deployment uncertainty and avoiding unnecessary lookup. It does not demonstrate general improvement in finding accuracy or recall. The exact vendor-backport question in Scenario 2 still requires an identified package and its public vendor tracker; Scenario 3 should remain unknown offline.

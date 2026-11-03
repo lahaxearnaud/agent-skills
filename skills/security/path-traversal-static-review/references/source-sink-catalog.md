@@ -41,7 +41,7 @@ Search for `Paths.get`, `Path.resolve`, `File`, `Files.newInputStream/readAllByt
 - Go: `os.Open/ReadFile/WriteFile/Remove/Rename`, `filepath.Join/Rel`, `http.ServeFile`, `http.FileServer`, archive readers, and request decoding in the router.
 - Other stacks: find equivalent path construction, canonicalization, file operation, static handler, template resolver, and archive extraction APIs.
 
-Check absolute-path behavior explicitly: some APIs ignore the base when the later component is absolute; others normalize differently. Consult the bundled [offline filesystem/API notes](offline-sources.md), then inspect the installed dependency source when its version differs; otherwise state the uncertainty. Do not depend on network documentation during a review.
+Check absolute-path behavior explicitly: some APIs ignore the base when the later component is absolute; others normalize differently. Consult the bundled [offline filesystem/API notes](offline-sources.md), then inspect the installed dependency source when its version differs. If connected, use exact primary documentation only to resolve a material behavior gap; otherwise state the uncertainty. Do not send private repository contents externally.
 
 ## Sinks by operation
 

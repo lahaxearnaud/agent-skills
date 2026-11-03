@@ -1,6 +1,6 @@
 # Offline source notes
 
-This file contains the operational documentation needed by the installed skill. Each note is a local paraphrase, retaining the original URL only for provenance and future maintenance. Consulted **2026-11-03**. Versions are identified as published in the source; verify current project versions during repository review.
+This file contains attributed paraphrases for ordinary offline use of the installed skill; it is not a mirror of upstream documentation. Read these notes first. If online, consult an exact primary source only when a material version, runtime, configuration, or impact detail is missing here and in the reviewed repository. This is optional. If unavailable, state the uncertainty. Never send private code externally. Sources were consulted **2026-11-03**; versions are identified as stated by the source and must be matched to the reviewed project.
 
 ## Injection and weakness taxonomies
 

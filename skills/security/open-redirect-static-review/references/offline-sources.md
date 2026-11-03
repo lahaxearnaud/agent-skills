@@ -1,6 +1,6 @@
 # Open redirect sources (offline notes)
 
-This file carries the source information needed by the installed skill. The entries paraphrase the cited sources and are not full copies. Keep the original URLs for attribution and future updates; do not open them during an offline review. Version ranges not copied below remain unknown locally and must not be guessed.
+This file carries attributed source information for ordinary offline review; the entries are paraphrases, not full copies. Read them first. When online, consult a suitable primary source only if a material protocol, version, parser, or policy detail is absent here and in the reviewed repository. This is optional. Version ranges not established locally remain unknown unless verified; never infer them from a title or search snippet, and never send private project code externally.
 
 Research snapshot: **2026-11-03**.
 
@@ -20,8 +20,8 @@ Research snapshot: **2026-11-03**.
 | Source | Local summary and review use |
 |---|---|
 | [Symfony HttpFoundation](https://symfony.com/doc/current/components/http_foundation.html) | `RedirectResponse` emits a redirect response; treat it as a sink, not a sanitizer. Trace the URL argument and any caller-side validation. |
-| [PHP `header()`](https://www.php.net/manual/en/function.header.php) | A `Location` header causes user-agent navigation in the relevant response behavior. Trace the final string passed to `header()` and response status; header-setting itself does not validate the destination. |
-| [Vue Router navigation](https://router.vuejs.org/guide/essentials/navigation) | `router.push()` and `router.replace()` are programmatic navigation APIs, while route-link components create navigation links. Determine whether the destination is an external authority and whether navigation is automatic; a click-only link is not by itself an open redirect. Exact URL handling depends on the installed router version and mode. |
+| [PHP `header()`](https://www.php.net/manual/en/function.header.php) | Sending a `Location` header directs the user agent to the supplied value and sets a 302 response unless a 201 or 3xx status was already set. The status affects redirect semantics, but neither it nor header emission validates the destination. Trace the final value, status, and all caller-side policy. |
+| [Vue Router navigation](https://router.vuejs.org/guide/essentials/navigation) | `router.push()` and `router.replace()` perform programmatic route navigation and return a promise; `<RouterLink>` uses the same route-location shape. The docs recommend encoding each dynamic path segment or using named routes with parameters, but URL encoding is not destination authorization. These docs do not establish a security guarantee for arbitrary external-looking strings: check the installed major version, mode/base and exact implementation before classifying an external navigation. |
 | [MDN `Location.assign()`](https://developer.mozilla.org/en-US/docs/Web/API/Location/assign) and [`Window.location`](https://developer.mozilla.org/en-US/docs/Web/API/Window/location) | Assigning or calling `assign()` on the browser location navigates to the supplied URL. These are client-side sinks; trace the value and effective URL parsing. A plain anchor that requires a user click is a different case. |
 | [`skills` CLI documentation](https://github.com/vercel-labs/skills) | The CLI can install a selected skill from a local repository path as well as a remote repository. The installed folder contains the skill's references. The remote command requires repository/network access; for an offline host, stage the repository or package first and use a locally available CLI or copy the skill directory into the agent's configured location. |
 

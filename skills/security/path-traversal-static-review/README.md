@@ -2,7 +2,7 @@
 
 An installable, source-only code-review skill for server-side Web path traversal: file reads/writes/deletes, static and download handlers, PHP/Symfony/Twig template/resource loaders, Node.js/Java/Python/Go code, archive import/restore (Zip Slip), symlinks, and path normalization mismatches.
 
-The skill does not execute the reviewed Web application or send requests. Its references, including local summaries of the filesystem APIs and standards it cites, are bundled and work after installation; it does not require the repository research corpus or Internet access at review time. External URLs are retained only for attribution and future updates.
+The skill does not execute the reviewed Web application or send requests to it. Its references, including local summaries of filesystem APIs and standards, are bundled and work after installation; it does not require the repository corpus or Internet access. Read local notes first. If online, consult an exact primary source only when a material version, platform, or filesystem detail is missing. This is optional; never send private code externally. External URLs remain for attribution and future updates.
 
 Install from this repository with:
 

@@ -32,3 +32,5 @@ Using `research-backed-skill-builder`, explain how to preserve source provenance
 - No scenario requires network access or repository-only corpus files.
 - Unknown version-specific behavior remains explicitly unknown when the local source note does not establish it.
 - External source URLs may remain in local notes for attribution, but are not treated as instructions to fetch during review.
+
+These six scenarios evaluate the offline baseline only. Conditional online source lookup is evaluated separately in [source-consultation-scenarios.md](source-consultation-scenarios.md); do not grant the offline scenarios network access or repository-only corpus files.

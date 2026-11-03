@@ -22,7 +22,7 @@ Review read, write/overwrite, delete, static/download, template/resource, archiv
 5. Establish route reachability, actor permissions, feature/configuration requirements, operating system/container, filesystem layout, and process permissions. Keep missing conditions explicit.
 6. Assess read, write, delete, metadata, template, and archive consequences separately. Treat execution as conditional unless the path to an executable/loadable destination and its later use are evidenced.
 
-Use the detailed [review workflow](references/review-workflow.md), [source/sink catalog](references/source-sink-catalog.md), [confinement guide](references/path-confinement.md), [archive/link guide](references/archive-and-symlink.md), and [offline filesystem/API notes](references/offline-sources.md) as needed. Do not fetch API documentation during a review. If the local notes do not establish behavior for the installed version, inspect source already present in the repository or state the behavior as unknown.
+Use the detailed [review workflow](references/review-workflow.md), [source/sink catalog](references/source-sink-catalog.md), [confinement guide](references/path-confinement.md), [archive/link guide](references/archive-and-symlink.md), and [offline filesystem/API notes](references/offline-sources.md) as needed. Start with the local notes and checked-out dependency source. If connected to an appropriate primary source, consult it only when an unresolved version, operating-system, filesystem, or API detail could materially affect confinement or impact. Internet access is optional; if unavailable, state the behavior as unknown. Never send private code externally. Do not send requests to the target or run dynamic scanners.
 
 ## Finding standard
 

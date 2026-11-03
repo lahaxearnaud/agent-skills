@@ -1,6 +1,6 @@
 # SQL injection sources (offline notes)
 
-These paraphrased notes provide the portions of the cited sources needed for a static review. They are not complete copies of the upstream documentation. Keep the URLs for provenance and maintenance, but do not fetch them during an offline review. Version-specific claims apply only to the version named below.
+These attributed paraphrases provide the source details needed for ordinary offline static review; they are not full copies. Read them first. When online, consult a suitable primary source only if a material version, dialect, configuration, or API detail is not established by these notes or the reviewed repository. This is optional; offline, state the unknown. Never send private code or repository data to an external service. Version-specific claims apply only to the version named below.
 
 Research snapshot: **2026-11-03**.
 

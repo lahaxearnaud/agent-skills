@@ -26,3 +26,18 @@ For other technical topics, inventory documented diagnostic tools, traces, or co
 ## Retention and rights
 
 Prefer direct links, metadata, paraphrased observations, and targeted excerpts needed for traceability. Respect third-party licenses and rights; do not treat third-party content as covered by the repository license. Avoid secrets, unnecessary personal data, cookies, private logs, and complete raw responses by default. If a user explicitly requests raw data preservation, assess storage and publication separately, preserve provenance, and report limits; do not destroy pre-existing files.
+
+## Sufficiency of local source notes
+
+An offline note should preserve the information needed to apply the skill's operational claim, not merely identify a page. There is no useful universal word count: record detail in proportion to the mechanism and risk of misinterpretation. For each source, make the following discoverable when the source establishes it:
+
+- **Documentation, standard, or API:** relevant section and behavior; applicable version/platform/configuration; important exceptions; what the behavior does not guarantee; how that changes the review decision.
+- **Advisory or public report:** affected/fixed versions as stated; actor and input; required role, configuration, and trigger; transformation and sink; impact attributed by the source; remediation; evidence limits and unknowns.
+- **Scanner or static-analysis tool:** publisher and version/edition; input and output; modeled sources/sinks or analysis scope; prerequisites; blind spots; and whether the tool was merely documented or actually run.
+- **Research case or lab:** evidence class, setup/conditions, observed or reported result, and limits on generalizing it to another codebase.
+
+Paraphrase the source in original wording; do not substitute a link, title, CVSS score, or search snippet for the mechanism. Keep the source date and distinguish source statements from reviewer inference. If an important detail is absent, either verify it from the primary source when available or label it unknown. Do not bulk-expand notes already sufficient for their use.
+
+## Optional lookup when a skill is used
+
+Generated skills should tell agents to read bundled notes first. If an agent has access to an appropriate primary source and a missing version, configuration, behavior, or impact detail would materially affect its conclusion, it may consult the relevant source and cite or record what was verified. Internet access is never a prerequisite; offline agents must use checked-out source where available or state uncertainty. Do not send private reviewed code, secrets, or user data to external services. This lookup rule does not override a skill's prohibition on execution, active testing, or requests to a target.

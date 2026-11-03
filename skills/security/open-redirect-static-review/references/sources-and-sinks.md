@@ -37,7 +37,7 @@ This is a search guide, not an exhaustive API list. Search wrappers, project hel
 - An external HTTP(S) navigation is distinct from `javascript:` or other executable URL schemes. If script execution is possible, classify and report the XSS/unsafe-scheme chain separately.
 - A URL used by the server to fetch data may be SSRF rather than a redirect. Do not merge findings solely because a parameter is named `url`.
 
-For framework navigation behavior, use [offline source notes](offline-sources.md) first. Do not browse during a review; if the local notes do not describe the installed version, inspect source already present in the repository or state the limitation.
+For framework navigation behavior, use [offline source notes](offline-sources.md) first. If connected and a missing version-specific behavior could change whether navigation is external or automatic, consult the exact primary documentation or implementation; otherwise inspect source already present in the repository or state the limitation. Never send private project code externally.
 
 ## Quick source search
 

@@ -20,7 +20,7 @@ This repository publishes reusable skills for coding agents, along with the sour
 
 A skill installed with the `skills` CLI must include all references needed during use. It must not depend on a repository-only corpus or machine-specific path unless the skill explicitly requires that dependency.
 
-External documentation cited in an installable skill must also have a concise, attributed local summary in that same skill package. Preserve original URLs as provenance and future-update pointers, but do not require an agent to open them during normal use. If a local summary does not support a version-specific claim, mark it unknown or inspect source already present in the reviewed repository. A machine with no general Internet access must still be able to use an already staged skill; remote installation commands are online conveniences, not runtime prerequisites.
+External documentation cited in an installable skill must also have an attributed local summary in that same skill package, detailed enough to support the operational guidance offline. During a review, use package-local notes first. If an appropriate primary source is available and an unresolved version, configuration, behavior, or impact detail would materially change the analysis, consult the relevant source and cite or record what was verified. This lookup is optional, not a prerequisite; without access, use source already present in the reviewed repository or state the uncertainty. Never send private repository code, secrets, or user data to an external service. A machine with no general Internet access must still be able to use an already staged skill; remote installation commands are online conveniences, not runtime prerequisites.
 
 ## Working in this repository
 
@@ -51,6 +51,7 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 | [0008](docs/adr/0008-static-path-traversal-review-scope.md) | Static path traversal review scope | Définit la revue statique des chemins fichier Web, y compris les handlers, loaders, archives, symlinks, préconditions et limites. |
 | [0009](docs/adr/0009-offline-skill-references.md) | Offline skill references | Requires each installable skill to bundle attributed local summaries for external references and keeps URLs as provenance rather than runtime dependencies. |
 | [0010](docs/adr/0010-static-rce-review-scope.md) | Static remote code execution review scope | Defines a source-only RCE skill across remotely reachable execution families with a minimum of 40 source-checked public cases and self-contained references. |
+| [0011](docs/adr/0011-conditional-primary-source-consultation.md) | Conditional primary-source consultation | Makes offline notes the default, permits focused primary-source lookup when a missing material detail affects a review, and keeps Internet access optional. |
 
 ## Git and publication
 

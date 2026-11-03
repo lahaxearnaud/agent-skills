@@ -1,6 +1,6 @@
 # XSS sources (offline notes)
 
-This bundle paraphrases the technical guidance and published-report details cited by the skill. It is not a mirror of the upstream pages. Keep original URLs for attribution and later updates; do not fetch them during an offline source review. Exact affected releases not stated below remain governed by the linked advisory and should be marked unknown unless the local dependency evidence resolves them.
+This bundle paraphrases the technical guidance and published-report details cited by the skill. It is not a mirror of the upstream pages. Read these notes first; they support ordinary offline review. If online, consult a suitable primary source only when a material version, configuration, browser, or impact detail is absent here and in the reviewed repository. This is optional. Exact affected releases not established locally remain unknown unless verified from the advisory or dependency evidence. Do not send private reviewed code to an external service.
 
 Research snapshot: **2026-11-03**.
 
@@ -38,4 +38,4 @@ Research snapshot: **2026-11-03**.
 
 ## Evidence limits
 
-These reports demonstrate patterns in their own products and versions. They do not prove an audited project is vulnerable. The original URLs are provenance, not required evidence to repeat during offline review; if a local summary lacks a detail, state it as unknown instead of reconstructing it from the advisory title.
+These reports demonstrate patterns in their own products and versions. They do not prove an audited project is vulnerable. The original URLs preserve attribution and allow focused verification when a missing material detail affects the review. If offline or unable to verify a detail, state it as unknown instead of reconstructing it from an advisory title.

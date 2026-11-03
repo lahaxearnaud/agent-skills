@@ -41,7 +41,7 @@ La commande est **`npx skills add`** : elle exécute la CLI `skills` et installe
 
 ### Utilisation hors ligne
 
-Les références documentaires utiles à l'analyse sont synthétisées dans chaque package; les URL externes conservées servent à l'attribution et aux mises à jour, pas à la revue. Pour une machine sans accès général à Internet, transférer à l'avance le dépôt ou le dossier complet de la skill, puis l'installer depuis cette copie locale avec une CLI déjà disponible, ou copier le dossier complet vers le répertoire de skills reconnu par l'agent. Les commandes ci-dessus qui installent depuis GitHub ou téléchargent `npx` nécessitent une connexion lors de l'installation.
+Les références documentaires utiles à l'analyse sont synthétisées dans chaque package et permettent une revue hors ligne. L'agent commence par ces notes; s'il a accès à une source primaire, il peut la consulter lorsqu'une nuance absente sur une version, une configuration, un comportement ou un impact change matériellement l'analyse. Cette consultation n'est jamais requise. Aucun code privé, secret ou donnée utilisateur ne doit être transmis à un service externe; sans accès à la source, l'agent indique l'incertitude. Pour une machine sans accès général à Internet, transférer à l'avance le dépôt ou le dossier complet de la skill, puis l'installer depuis cette copie locale avec une CLI déjà disponible, ou copier le dossier complet vers le répertoire de skills reconnu par l'agent. Les commandes ci-dessus qui installent depuis GitHub ou téléchargent `npx` nécessitent une connexion lors de l'installation.
 
 ## Catalogue
 

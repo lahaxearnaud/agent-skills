@@ -12,7 +12,7 @@ npx skills add lahaxearnaud/agent-skills --skill rce-static-review --agent codex
 
 To see available skills, use `npx skills add lahaxearnaud/agent-skills --list`. A local checkout can be used with `npx skills add . --list`. Exact destinations and agent discovery vary with the `skills` CLI version; copy the complete `rce-static-review` directory, including `references/`, when staging it manually.
 
-For a machine without Internet access, copy this whole directory in advance into a skill location supported by the target agent. The workflow and technical references remain usable offline; external links inside `references/offline-sources.md` are provenance/update pointers, not review-time requirements.
+For a machine without Internet access, copy this whole directory in advance into a skill location supported by the target agent. The workflow and technical references remain usable offline. Read local notes first; if connected, the skill permits a focused primary-source lookup only when a material version, runtime, or configuration detail is missing. Internet access is optional, and private code must not be sent externally.
 
 ## Use
 
