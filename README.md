@@ -2,6 +2,8 @@
 
 Un catalogue de skills pour agents de code, organisé par domaine. Il comprend des skills de revue statique XSS et injection SQL, ainsi qu’une méthode pour construire des skills fondées sur un corpus.
 
+Les agents de code doivent commencer par lire le [guide du dépôt](AGENTS.md), qui décrit son organisation et référence les décisions d’architecture sous [`docs/adr/`](docs/adr/). Claude Code charge les mêmes consignes via [`CLAUDE.md`](CLAUDE.md).
+
 ## Installation
 
 Avec Node.js et npm installés, utiliser la CLI open source [`skills`](https://github.com/vercel-labs/skills) :
