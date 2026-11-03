@@ -93,8 +93,8 @@
 - Produces: one verified commit pushed to `origin/main`.
 
 - [x] **Step 1: Run full Python tests, available template smoke runs, Markdown checks, `git diff --check`, `npx --yes skills add . --list`, and a temporary local CLI install with recursive byte comparison.** The test suite reports 40 passing and two browser skips; the browser image startup was also directly attempted and blocked by the daemon disk limit.
-- [ ] **Step 2: Review the staged diff**, stage only the plan/spec, template package, tests, docs, ADR/index and maintenance changes, then commit on `main`.
-- [ ] **Step 3: Confirm `origin/main` still equals the commit parent, push without force, and verify remote SHA and a clean worktree.**
+- [x] **Step 2: Review the staged diff**, stage only the plan/spec, template package, tests, docs, ADR/index and maintenance changes, then commit on `main`.
+- [x] **Step 3: Confirm `origin/main` still equals the commit parent, push without force, and verify remote SHA and a clean worktree.**
 
 ---
 
