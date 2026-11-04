@@ -10,11 +10,13 @@ This repository publishes reusable skills for coding agents, along with the sour
 |---|---|
 | `skills/security/<name>/` | Installable security-review skills and their self-contained operational references. |
 | `skills/documentation/<name>/` | Installable documentation and engineering-process skills. |
+| `skills/testing/<name>/` | Installable testing-methodology skills. |
 | `skills/meta/` | Skills for creating and maintaining other research-backed skills. |
 | `corpus/security/<topic>/` | Research material, published cases, leads, synthetic scenarios and source notes. |
 | `maintenance/security/` | Corpus update prompts, maintenance guides and skill evaluations. |
 | `maintenance/meta/` | Evaluations and maintenance notes for meta skills. |
 | `maintenance/documentation/` | Evaluations and maintenance notes for documentation skills. |
+| `maintenance/testing/` | Evaluations and maintenance notes for testing skills. |
 | `docs/adr/` | Accepted architecture decisions and the ADR template. |
 | `README.md` | Human-facing repository overview, in French. |
 
@@ -55,6 +57,7 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 | [0012](docs/adr/0012-isolated-poc-reproduction.md) | Reproduction isolée et minimale de vulnérabilités | Définit une validation jetable par POC minimal dans Docker local, sans dépendances réinstallées ni montage de chemins hôte; les autorisations d'image sont précisées par ADR-0013. |
 | [0013](docs/adr/0013-configurable-docker-image-allowlist.md) | Liste d'autorisation configurable des images Docker | Limite les dépôts par défaut et autorise une liste utilisateur de registres/dépôts complets, avec joker uniquement dans le tag et digest toujours vérifié. |
 | [0014](docs/adr/0014-isolated-poc-test-templates.md) | Squelettes de tests pour les POC isolés | Fournit quatre squelettes installables par runtime/surface avec sorties témoin normalisées; les tests navigateur restent locaux et préservent le profil Chromium et Docker. |
+| [0015](docs/adr/0015-application-test-pyramid.md) | Skill de rédaction des tests avec la pyramide | Ajoute une skill installable de rédaction de tests fonctionnels et de non-régression, avec choix du niveau le plus bas fidèle, test-first par défaut et exemples PHP/Symfony, JavaScript, Vue et navigateur. |
 
 ## Git and publication
 

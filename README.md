@@ -1,6 +1,6 @@
 # Agent Skills
 
-Un catalogue de skills pour agents de code, organisé par domaine. Il comprend des skills de revue statique XSS, injection SQL, Open Redirect, Path Traversal et RCE, une skill de rédaction d’ADR et une méthode pour construire des skills fondées sur un corpus.
+Un catalogue de skills pour agents de code, organisé par domaine. Il comprend des skills de revue statique XSS, injection SQL, Open Redirect, Path Traversal et RCE, une skill de rédaction d’ADR, une skill de rédaction des tests selon la pyramide et une méthode pour construire des skills fondées sur un corpus.
 
 Les agents de code doivent commencer par lire le [guide du dépôt](AGENTS.md), qui décrit son organisation et référence les décisions d’architecture sous [`docs/adr/`](docs/adr/). Claude Code charge les mêmes consignes via [`CLAUDE.md`](CLAUDE.md).
 
@@ -23,6 +23,9 @@ npx skills add lahaxearnaud/agent-skills --skill sql-injection-static-review --a
 
 # Installer la skill de rédaction et d'indexation des ADR
 npx skills add lahaxearnaud/agent-skills --skill adr-authoring --agent codex opencode --yes
+
+# Installer la skill de rédaction des tests selon la pyramide
+npx skills add lahaxearnaud/agent-skills --skill test-pyramid --agent codex opencode --yes
 
 # Installer la revue statique des Open Redirect
 npx skills add lahaxearnaud/agent-skills --skill open-redirect-static-review --agent codex opencode --yes
@@ -57,6 +60,7 @@ Les références documentaires utiles à l'analyse sont synthétisées dans chaq
 | Security | [rce-static-review](skills/security/rce-static-review/SKILL.md) | Revue statique des chemins RCE à partir du code : processus/commandes, évaluation dynamique, templates, désérialisation, chargement et chaînes différées. |
 | Security | [isolated-vulnerability-reproduction](skills/security/isolated-vulnerability-reproduction/SKILL.md) | Reproduction jetable minimale dans Docker local; liste d'images par défaut ou remplaçable par l'utilisateur, tag optionnellement filtré par motif et digest obligatoire. |
 | Documentation | [adr-authoring](skills/documentation/adr-authoring/SKILL.md) | Rédige, met à jour et indexe les ADR en respectant les conventions du dépôt. |
+| Testing | [test-pyramid](skills/testing/test-pyramid/SKILL.md) | Écrit des tests fonctionnels et de non-régression en choisissant le niveau le plus bas fidèle, sans ratio imposé. |
 | Meta | [research-backed-skill-builder](skills/meta/research-backed-skill-builder/SKILL.md) | Création de skills documentées à partir de sources et de corpus traçables. |
 
 Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt et identifier les flux XSS potentiels. » La skill XSS interdit de lancer l'application, un navigateur, des payloads ou un scanner actif. La skill `open-redirect-static-review` suit séparément les réponses `Location` et les navigations JavaScript automatiques, en distinguant les liens cliquables et les cas incomplets. La skill `rce-static-review` reste également source-only et vérifie les chemins réseau vers les frontières d'exécution sans lancer l'application ni des scanners.
@@ -76,6 +80,7 @@ Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt
 - [Évaluation initiale de la skill](maintenance/security/evaluation-xss-static-review.md) : essais sur extraits synthétiques et limites de validation.
 - [Évaluation de la skill de création](maintenance/meta/evaluation-research-backed-skill-builder.md) : scénarios sécurité et PostgreSQL, avec et sans la skill.
 - [Évaluation de adr-authoring](maintenance/documentation/adr-authoring/evaluation.md) : scénario de référence et critères pour vérifier le respect des conventions ADR.
+- [Skill test-pyramid](skills/testing/test-pyramid/SKILL.md) : méthode de rédaction des tests selon la pyramide, avec exemples PHP/Symfony, JavaScript, Vue et navigateur. Voir le [guide de sélection](skills/testing/test-pyramid/references/layer-selection.md), les [résumés de sources hors ligne](skills/testing/test-pyramid/references/offline-sources.md), les [scénarios d'évaluation](maintenance/testing/evaluation-scenarios.md) et le [bilan initial](maintenance/testing/evaluation.md).
 
 Les références externes et résultats de recherche ont des niveaux de preuve différents ; un index GHSA dédupliqué ne garantit pas un ensemble d'incidents distincts ou entièrement analysés. Le corpus conserve des exemples de charges à des fins de recherche et d'analyse, mais la skill n'exécute aucune sonde.
 
