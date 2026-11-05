@@ -59,6 +59,8 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 | [0014](docs/adr/0014-isolated-poc-test-templates.md) | Squelettes de tests pour les POC isolés | Fournit quatre squelettes installables par runtime/surface avec sorties témoin normalisées; les tests navigateur restent locaux et préservent le profil Chromium et Docker. |
 | [0015](docs/adr/0015-application-test-pyramid.md) | Skill de rédaction des tests avec la pyramide | Ajoute une skill installable de rédaction de tests fonctionnels et de non-régression, avec choix du niveau le plus bas fidèle, test-first par défaut et exemples PHP/Symfony, JavaScript, Vue et navigateur. |
 
+| [0016](docs/adr/0016-static-authorization-review.md) | Revue statique des autorisations Web | Définit le périmètre source-only des contrôles fonctionnels, objets, tenants et propriétés, avec corpus et références hors ligne. |
+
 ## Git and publication
 
 Check the diff and stage only files for the requested change. A local commit is appropriate when the user requests a repository deliverable. Do not push, publish, open a PR, or merge branches without explicit authorization. If the user authorizes publication, follow the requested branch and integration method; do not infer a standing authorization from an earlier task.

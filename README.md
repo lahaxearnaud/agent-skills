@@ -27,6 +27,9 @@ npx skills add lahaxearnaud/agent-skills --skill adr-authoring --agent codex ope
 # Installer la skill de rédaction des tests selon la pyramide
 npx skills add lahaxearnaud/agent-skills --skill test-pyramid --agent codex opencode --yes
 
+# Installer la revue statique des autorisations
+npx skills add lahaxearnaud/agent-skills --skill authorization-static-review --agent codex opencode --yes
+
 # Installer la revue statique des Open Redirect
 npx skills add lahaxearnaud/agent-skills --skill open-redirect-static-review --agent codex opencode --yes
 
@@ -55,6 +58,7 @@ Les références documentaires utiles à l'analyse sont synthétisées dans chaq
 |---|---|---|
 | Security | [xss-static-review](skills/security/xss-static-review/SKILL.md) | Revue statique de XSS Web : PHP, Symfony, Twig, JavaScript, Vue et autres technologies. |
 | Security | [sql-injection-static-review](skills/security/sql-injection-static-review/SKILL.md) | Revue statique des injections SQL : PHP, Doctrine et autres technologies Web. |
+| Security | [authorization-static-review](skills/security/authorization-static-review/SKILL.md) | Revue statique des autorisations fonctionnelles, objets, tenants et propriétés, notamment PHP/Symfony et Vue. |
 | Security | [open-redirect-static-review](skills/security/open-redirect-static-review/SKILL.md) | Revue statique des redirects serveur et navigations JavaScript externes : PHP, Symfony, JavaScript, Vue, OAuth et autres technologies Web. |
 | Security | [path-traversal-static-review](skills/security/path-traversal-static-review/SKILL.md) | Revue statique des traversées de chemins fichier : lectures/écritures/suppressions, fichiers statiques, templates, archives Zip Slip et symlinks. |
 | Security | [rce-static-review](skills/security/rce-static-review/SKILL.md) | Revue statique des chemins RCE à partir du code : processus/commandes, évaluation dynamique, templates, désérialisation, chargement et chaînes différées. |
@@ -68,6 +72,8 @@ Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt
 `isolated-vulnerability-reproduction` est une skill séparée, activée uniquement quand une revue a déjà identifié un doute précis et qu'une preuve minimale est faisable. Elle interdit les cibles réelles, l'exécution sur l'hôte, les montages de chemins hôte et la réinstallation du graphe de dépendances. Quand seule une fonction d'une dépendance est nécessaire, elle demande de copier cette fonction et ses seuls auxiliaires indispensables depuis les sources locales. Le runner transfère le petit espace de travail vers un `tmpfs` interne à un conteneur éphémère. Il autorise par défaut Node, PHP 8, Python et Playwright dans les dépôts listés; PHP 7 est exclu. `ISOLATED_POC_ALLOWED_IMAGES` remplace cette liste et accepte des références registre/dépôt exactes avec `*` uniquement dans le tag. Les hôtes ambigus à un seul label sont refusés pour éviter une résolution implicite vers Docker Hub. La skill inclut des [squelettes reproductibles](skills/security/isolated-vulnerability-reproduction/templates/README.md) pour HTML/navigateur, JavaScript avec Node, JavaScript dans un navigateur et PHP CLI; leur sortie témoin confirme le harnais uniquement, pas une vulnérabilité.
 
 ## Corpus et maintenance
+
+- [Corpus des autorisations](corpus/security/authorization/README.md) : 60 avis et enregistrements consultés, avec extraits attribués et pistes non vérifiées séparées ; voir le [prompt de maintenance](maintenance/security/authorization-static-review/update-prompt.md) les [scénarios synthétiques](maintenance/security/authorization-static-review/evaluation-scenarios.md) et le [bilan d’évaluation](maintenance/security/authorization-static-review/evaluation.md).
 
 - [Corpus injection SQL](corpus/security/sql-injection/README.md) : 61 résumés de rapports publiés, 20 pistes à qualifier et 30 scénarios synthétiques ; voir aussi le [prompt de maintenance SQL](maintenance/security/sql-injection/update-prompt.md) et l’[évaluation SQL](maintenance/security/sql-injection/evaluation.md).
 - [Corpus Open Redirect](corpus/security/open-redirect/README.md) : 60 fiches de CVE/avis publics dédupliquées, avec conditions, technologies, flux, impacts, protections, normes et limites ; des pistes et cas XSS/navigation adjacents sont classés à part. Voir le [prompt de mise à jour](maintenance/security/open-redirect/update-prompt.md) et l’[évaluation de la skill](maintenance/security/open-redirect-static-review/evaluation.md).

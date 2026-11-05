@@ -1,0 +1,7 @@
+# Web authorization research corpus
+
+Consulted 2026-11-05. [verified-cases.jsonl](verified-cases.jsonl) contains 60 distinct advisory/CVE identifiers selected for Web authorization relevance. Each entry records a title, source, a short attributed excerpt from the consulted description, publication/consultation dates, and limitations; package version metadata is included when provided by GitHub. These are public vulnerability reports, not observed exploitation or independent proof of every implementation detail. Excerpts may omit material prerequisites; consult full advisories for updates. CWE metadata and vendor claims are attributed to their sources. Distinct IDs do not guarantee distinct root causes or deployments.
+
+The [initial JSONL](cases.jsonl) retains 15 discovery entries, of which 6 were previously source-checked and 9 marked unverified. [Additional leads](cases-additional.md) retain provisional notes, including unavailable or inaccurate records; do not count them as reviewed evidence. A WeKan note was identified as inaccurate. Synthetic scenarios live separately in maintenance.
+
+The corpus covers object/tenant/function authorization, endpoint policy consistency, and framework enforcement. It is not exhaustive, and does not claim precision or recall for the resulting skill. External descriptions retain their original rights; short excerpts are attributed to their source.
