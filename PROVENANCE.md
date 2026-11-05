@@ -17,3 +17,5 @@ Pour toute contribution, limiter les citations au nécessaire, attribuer les sou
 Le corpus des autorisations Web sous `corpus/security/authorization/` distingue 60 enregistrements consultés et des pistes initiales non vérifiées. Les courts extraits sont attribués aux avis ou enregistrements d’origine et conservent leurs droits ; les identifiants distincts ne prouvent pas des causes racines indépendantes. Les descriptions, conditions et versions doivent être relues dans les sources complètes avant toute conclusion. Aucune exploitation n’a été reproduite.
 
 Le corpus SSRF sous `corpus/security/ssrf/` résume 24 avis publics consultés, en distinguant conditions, mécanismes et limites. Les identifiants distincts ne garantissent pas des causes racines indépendantes ; aucune exploitation n’a été reproduite. Les sources conservent leurs droits.
+
+Le corpus de téléversement sous `corpus/security/file-upload/` résume 34 avis publics consultés, avec conditions et limites. Les identifiants distincts ne prouvent pas des causes racines indépendantes ; aucune exploitation n’a été reproduite. Les sources conservent leurs droits.

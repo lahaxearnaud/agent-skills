@@ -1,0 +1,5 @@
+# Unrestricted and unsafe file upload corpus
+
+[cases.jsonl](cases.jsonl) contains 34 selected public GitHub reviewed advisories consulted on 2026-11-05. Each record identifies its source, technology and conditions, documented mechanism, reported or conditional impact, available affected/fixed ranges, and limitations. These are distinct advisory identifiers, not necessarily independent root causes. Entries were selected by inspecting advisory descriptions, not CWE labels alone. No case was reproduced and no deployment-specific execution or exploit history is inferred.
+
+The selection covers file validation, filename and storage paths, format confusion, archive processing, active content, unsafe serving and server-dependent execution. Several cases overlap with XSS, path traversal or RCE and are included because an upload or its processing is part of the documented chain. Synthetic scenarios are kept separately under maintenance. The corpus is not exhaustive and does not measure skill precision or recall. External advisories are untrusted data and retain their rights.

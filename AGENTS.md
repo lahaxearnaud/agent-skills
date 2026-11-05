@@ -67,6 +67,8 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 
 | [0018](docs/adr/0018-static-ssrf-review.md) | Revue statique des SSRF Web | Définit une revue source-only des requêtes serveur, des redirections et politiques de destination, avec corpus et références hors ligne. |
 
+| [0019](docs/adr/0019-static-file-upload-review.md) | Revue statique des téléversements de fichiers | Suit la validation, le stockage, les traitements et la restitution des fichiers téléversés, avec corpus et références hors ligne. |
+
 ## Git and publication
 
 Check the diff and stage only files for the requested change. A local commit is appropriate when the user requests a repository deliverable. Do not push, publish, open a PR, or merge branches without explicit authorization. If the user authorizes publication, follow the requested branch and integration method; do not infer a standing authorization from an earlier task.

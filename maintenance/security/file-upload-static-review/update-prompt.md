@@ -1,0 +1,3 @@
+# Maintenance prompt
+
+Review the corpus, skill and repository instructions. Collect primary advisories and official guidance covering upload validation, paths, processing, active content and delivery; record versions, actor permissions, path, guards, impact and uncertainty. Deduplicate aliases and distinguish unverified leads, related cases and synthetic scenarios. Do not infer execution from upload, a dependency version, filename or public directory alone. Update attributed offline summaries and skill references, run link and installation checks, and record evaluation limits. Keep the skill source-only and do not upload files or probe a target.
