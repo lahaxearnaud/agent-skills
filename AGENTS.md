@@ -65,6 +65,8 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 
 | [0017](docs/adr/0017-semantic-commits-skill.md) | Skill de rédaction des commits sémantiques | Ajoute une skill de rédaction des messages compatibles avec les conventions et la configuration semantic-release du projet. |
 
+| [0018](docs/adr/0018-static-ssrf-review.md) | Revue statique des SSRF Web | Définit une revue source-only des requêtes serveur, des redirections et politiques de destination, avec corpus et références hors ligne. |
+
 ## Git and publication
 
 Check the diff and stage only files for the requested change. A local commit is appropriate when the user requests a repository deliverable. Do not push, publish, open a PR, or merge branches without explicit authorization. If the user authorizes publication, follow the requested branch and integration method; do not infer a standing authorization from an earlier task.

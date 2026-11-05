@@ -30,6 +30,9 @@ npx skills add lahaxearnaud/agent-skills --skill adr-authoring --agent codex ope
 # Installer la skill de rédaction des tests selon la pyramide
 npx skills add lahaxearnaud/agent-skills --skill test-pyramid --agent codex opencode --yes
 
+# Installer la revue statique SSRF
+npx skills add lahaxearnaud/agent-skills --skill ssrf-static-review --agent codex opencode --yes
+
 # Installer la revue statique des autorisations
 npx skills add lahaxearnaud/agent-skills --skill authorization-static-review --agent codex opencode --yes
 
@@ -61,6 +64,7 @@ Les références documentaires utiles à l'analyse sont synthétisées dans chaq
 |---|---|---|
 | Security | [xss-static-review](skills/security/xss-static-review/SKILL.md) | Revue statique de XSS Web : PHP, Symfony, Twig, JavaScript, Vue et autres technologies. |
 | Security | [sql-injection-static-review](skills/security/sql-injection-static-review/SKILL.md) | Revue statique des injections SQL : PHP, Doctrine et autres technologies Web. |
+| Security | [ssrf-static-review](skills/security/ssrf-static-review/SKILL.md) | Revue statique des requêtes serveur influençables, des redirections, du DNS et des politiques de destination. |
 | Security | [authorization-static-review](skills/security/authorization-static-review/SKILL.md) | Revue statique des autorisations fonctionnelles, objets, tenants et propriétés, notamment PHP/Symfony et Vue. |
 | Security | [open-redirect-static-review](skills/security/open-redirect-static-review/SKILL.md) | Revue statique des redirects serveur et navigations JavaScript externes : PHP, Symfony, JavaScript, Vue, OAuth et autres technologies Web. |
 | Security | [path-traversal-static-review](skills/security/path-traversal-static-review/SKILL.md) | Revue statique des traversées de chemins fichier : lectures/écritures/suppressions, fichiers statiques, templates, archives Zip Slip et symlinks. |
@@ -76,6 +80,8 @@ Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt
 `isolated-vulnerability-reproduction` est une skill séparée, activée uniquement quand une revue a déjà identifié un doute précis et qu'une preuve minimale est faisable. Elle interdit les cibles réelles, l'exécution sur l'hôte, les montages de chemins hôte et la réinstallation du graphe de dépendances. Quand seule une fonction d'une dépendance est nécessaire, elle demande de copier cette fonction et ses seuls auxiliaires indispensables depuis les sources locales. Le runner transfère le petit espace de travail vers un `tmpfs` interne à un conteneur éphémère. Il autorise par défaut Node, PHP 8, Python et Playwright dans les dépôts listés; PHP 7 est exclu. `ISOLATED_POC_ALLOWED_IMAGES` remplace cette liste et accepte des références registre/dépôt exactes avec `*` uniquement dans le tag. Les hôtes ambigus à un seul label sont refusés pour éviter une résolution implicite vers Docker Hub. La skill inclut des [squelettes reproductibles](skills/security/isolated-vulnerability-reproduction/templates/README.md) pour HTML/navigateur, JavaScript avec Node, JavaScript dans un navigateur et PHP CLI; leur sortie témoin confirme le harnais uniquement, pas une vulnérabilité.
 
 ## Corpus et maintenance
+
+- [Corpus SSRF](corpus/security/ssrf/README.md) : 24 avis consultés, avec conditions, mécanismes et limites ; voir le [prompt de maintenance](maintenance/security/ssrf-static-review/update-prompt.md) et les [scénarios synthétiques](maintenance/security/ssrf-static-review/evaluation.md).
 
 - [Skill semantic-commits](skills/development/semantic-commits/SKILL.md) : [prompt de maintenance](maintenance/development/semantic-commits/update-prompt.md) et [scénarios d’évaluation](maintenance/development/semantic-commits/evaluation.md).
 

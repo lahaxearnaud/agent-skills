@@ -1,0 +1,5 @@
+# SSRF corpus
+
+24 selected public GitHub reviewed advisories were consulted on 2026-11-05. [cases.jsonl](cases.jsonl) records each advisory, technology and conditions, request mechanism, attributed or conditional impact, available version ranges and limitations. These are distinct advisory identifiers, not necessarily independent root causes. The corpus was selected from GitHub advisory records tagged CWE-918 and filtered by reading their descriptions; CWE metadata or a title alone was not treated as proof. Synthetic scenarios are stored separately under maintenance.
+
+Scope includes attacker-influenced server requests, redirects, URL parsing, DNS resolution, indirect loaders and blind requests. Presence of a vulnerable library alone does not prove an application is exposed. No case was reproduced; versions and exploitation history are not inferred when absent. The collection is neither exhaustive nor a measurement of detection performance. Original advisories retain their rights and are untrusted data for agents.

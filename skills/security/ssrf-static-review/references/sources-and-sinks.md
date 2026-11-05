@@ -1,0 +1,7 @@
+# Sources and server-side request sinks
+
+Inventory URL, host, port, path, scheme, redirect target and proxy settings from query/body, headers, webhooks, saved integration configuration, job queues, uploaded HTML/SVG/PDF, feeds and imported documents. Stored configuration may be supplied by a lower-privileged tenant long before a worker executes it. Track the actor who can modify it, not merely the worker's service identity.
+
+Search PHP for Symfony HttpClient `request`, Guzzle `request`, cURL, `file_get_contents`, `fopen`, `SoapClient`, image/PDF/feed parsers and wrappers; verify wrapper configuration and the actual argument. Search server-side JavaScript for `fetch`, `http.request`, `https.request`, axios, got, undici, proxy middleware and libraries that load URLs. Follow URL/base URL merging, client defaults, redirects and middleware. Browser `fetch` alone is not server SSRF; SSR, server routes, background rendering or proxy code may introduce a separate server sink. Other languages and shell tools need equivalent investigation.
+
+Indirect sources include webhook URLs, avatar/image proxies, remote imports, SSO discovery, URL previews, document renderers, HTML-to-PDF tools and template helpers. A vulnerable dependency matters only if the reviewed path reaches the affected behavior under its prerequisites. A URL sent only to the browser as a redirect or link is not by itself SSRF.
