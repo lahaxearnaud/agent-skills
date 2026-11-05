@@ -21,6 +21,9 @@ npx skills add lahaxearnaud/agent-skills --skill xss-static-review --agent codex
 # Installer la revue statique SQL dans le projet courant
 npx skills add lahaxearnaud/agent-skills --skill sql-injection-static-review --agent codex opencode --yes
 
+# Installer la skill de rédaction des commits sémantiques
+npx skills add lahaxearnaud/agent-skills --skill semantic-commits --agent codex opencode --yes
+
 # Installer la skill de rédaction et d'indexation des ADR
 npx skills add lahaxearnaud/agent-skills --skill adr-authoring --agent codex opencode --yes
 
@@ -63,6 +66,7 @@ Les références documentaires utiles à l'analyse sont synthétisées dans chaq
 | Security | [path-traversal-static-review](skills/security/path-traversal-static-review/SKILL.md) | Revue statique des traversées de chemins fichier : lectures/écritures/suppressions, fichiers statiques, templates, archives Zip Slip et symlinks. |
 | Security | [rce-static-review](skills/security/rce-static-review/SKILL.md) | Revue statique des chemins RCE à partir du code : processus/commandes, évaluation dynamique, templates, désérialisation, chargement et chaînes différées. |
 | Security | [isolated-vulnerability-reproduction](skills/security/isolated-vulnerability-reproduction/SKILL.md) | Reproduction jetable minimale dans Docker local; liste d'images par défaut ou remplaçable par l'utilisateur, tag optionnellement filtré par motif et digest obligatoire. |
+| Development | [semantic-commits](skills/development/semantic-commits/SKILL.md) | Rédige des commits conventionnels adaptés au parseur et aux règles semantic-release du projet. |
 | Documentation | [adr-authoring](skills/documentation/adr-authoring/SKILL.md) | Rédige, met à jour et indexe les ADR en respectant les conventions du dépôt. |
 | Testing | [test-pyramid](skills/testing/test-pyramid/SKILL.md) | Écrit des tests fonctionnels et de non-régression en choisissant le niveau le plus bas fidèle, sans ratio imposé. |
 | Meta | [research-backed-skill-builder](skills/meta/research-backed-skill-builder/SKILL.md) | Création de skills documentées à partir de sources et de corpus traçables. |
@@ -72,6 +76,8 @@ Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt
 `isolated-vulnerability-reproduction` est une skill séparée, activée uniquement quand une revue a déjà identifié un doute précis et qu'une preuve minimale est faisable. Elle interdit les cibles réelles, l'exécution sur l'hôte, les montages de chemins hôte et la réinstallation du graphe de dépendances. Quand seule une fonction d'une dépendance est nécessaire, elle demande de copier cette fonction et ses seuls auxiliaires indispensables depuis les sources locales. Le runner transfère le petit espace de travail vers un `tmpfs` interne à un conteneur éphémère. Il autorise par défaut Node, PHP 8, Python et Playwright dans les dépôts listés; PHP 7 est exclu. `ISOLATED_POC_ALLOWED_IMAGES` remplace cette liste et accepte des références registre/dépôt exactes avec `*` uniquement dans le tag. Les hôtes ambigus à un seul label sont refusés pour éviter une résolution implicite vers Docker Hub. La skill inclut des [squelettes reproductibles](skills/security/isolated-vulnerability-reproduction/templates/README.md) pour HTML/navigateur, JavaScript avec Node, JavaScript dans un navigateur et PHP CLI; leur sortie témoin confirme le harnais uniquement, pas une vulnérabilité.
 
 ## Corpus et maintenance
+
+- [Skill semantic-commits](skills/development/semantic-commits/SKILL.md) : [prompt de maintenance](maintenance/development/semantic-commits/update-prompt.md) et [scénarios d’évaluation](maintenance/development/semantic-commits/evaluation.md).
 
 - [Corpus des autorisations](corpus/security/authorization/README.md) : 60 avis et enregistrements consultés, avec extraits attribués et pistes non vérifiées séparées ; voir le [prompt de maintenance](maintenance/security/authorization-static-review/update-prompt.md) les [scénarios synthétiques](maintenance/security/authorization-static-review/evaluation-scenarios.md) et le [bilan d’évaluation](maintenance/security/authorization-static-review/evaluation.md).
 

@@ -11,12 +11,14 @@ This repository publishes reusable skills for coding agents, along with the sour
 | `skills/security/<name>/` | Installable security-review skills and their self-contained operational references. |
 | `skills/documentation/<name>/` | Installable documentation and engineering-process skills. |
 | `skills/testing/<name>/` | Installable testing-methodology skills. |
+| `skills/development/<name>/` | Installable development-workflow skills. |
 | `skills/meta/` | Skills for creating and maintaining other research-backed skills. |
 | `corpus/security/<topic>/` | Research material, published cases, leads, synthetic scenarios and source notes. |
 | `maintenance/security/` | Corpus update prompts, maintenance guides and skill evaluations. |
 | `maintenance/meta/` | Evaluations and maintenance notes for meta skills. |
 | `maintenance/documentation/` | Evaluations and maintenance notes for documentation skills. |
 | `maintenance/testing/` | Evaluations and maintenance notes for testing skills. |
+| `maintenance/development/` | Evaluations and maintenance notes for development skills. |
 | `docs/adr/` | Accepted architecture decisions and the ADR template. |
 | `README.md` | Human-facing repository overview, in French. |
 
@@ -60,6 +62,8 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 | [0015](docs/adr/0015-application-test-pyramid.md) | Skill de rédaction des tests avec la pyramide | Ajoute une skill installable de rédaction de tests fonctionnels et de non-régression, avec choix du niveau le plus bas fidèle, test-first par défaut et exemples PHP/Symfony, JavaScript, Vue et navigateur. |
 
 | [0016](docs/adr/0016-static-authorization-review.md) | Revue statique des autorisations Web | Définit le périmètre source-only des contrôles fonctionnels, objets, tenants et propriétés, avec corpus et références hors ligne. |
+
+| [0017](docs/adr/0017-semantic-commits-skill.md) | Skill de rédaction des commits sémantiques | Ajoute une skill de rédaction des messages compatibles avec les conventions et la configuration semantic-release du projet. |
 
 ## Git and publication
 
