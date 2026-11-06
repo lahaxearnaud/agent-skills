@@ -57,7 +57,7 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 | [0010](docs/adr/0010-static-rce-review-scope.md) | Static remote code execution review scope | Defines a source-only RCE skill across remotely reachable execution families with a minimum of 40 source-checked public cases and self-contained references. |
 | [0011](docs/adr/0011-conditional-primary-source-consultation.md) | Conditional primary-source consultation | Makes offline notes the default, permits focused primary-source lookup when a missing material detail affects a review, and keeps Internet access optional. |
 | [0012](docs/adr/0012-isolated-poc-reproduction.md) | Reproduction isolée et minimale de vulnérabilités | Définit une validation jetable par POC minimal dans Docker local, sans dépendances réinstallées ni montage de chemins hôte; les autorisations d'image sont précisées par ADR-0013. |
-| [0013](docs/adr/0013-configurable-docker-image-allowlist.md) | Liste d'autorisation configurable des images Docker | Limite les dépôts par défaut et autorise une liste utilisateur de registres/dépôts complets, avec joker uniquement dans le tag et digest toujours vérifié. |
+| [0013](docs/adr/0013-configurable-docker-image-allowlist.md) | Liste d'autorisation configurable des images Docker | Limite les dépôts et autorise une liste utilisateur ; la restriction PHP 8 est remplacée par ADR-0020. |
 | [0014](docs/adr/0014-isolated-poc-test-templates.md) | Squelettes de tests pour les POC isolés | Fournit quatre squelettes installables par runtime/surface avec sorties témoin normalisées; les tests navigateur restent locaux et préservent le profil Chromium et Docker. |
 | [0015](docs/adr/0015-application-test-pyramid.md) | Skill de rédaction des tests avec la pyramide | Ajoute une skill installable de rédaction de tests fonctionnels et de non-régression, avec choix du niveau le plus bas fidèle, test-first par défaut et exemples PHP/Symfony, JavaScript, Vue et navigateur. |
 
@@ -68,6 +68,8 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 | [0018](docs/adr/0018-static-ssrf-review.md) | Revue statique des SSRF Web | Définit une revue source-only des requêtes serveur, des redirections et politiques de destination, avec corpus et références hors ligne. |
 
 | [0019](docs/adr/0019-static-file-upload-review.md) | Revue statique des téléversements de fichiers | Suit la validation, le stockage, les traitements et la restitution des fichiers téléversés, avec corpus et références hors ligne. |
+
+| [0020](docs/adr/0020-allow-all-php-versions-for-isolated-poc.md) | Autoriser toutes les versions de PHP pour les POC isolés | Étend le motif PHP intégré à toutes les versions tout en conservant le tag concret, le digest et la liste utilisateur de remplacement. |
 
 ## Git and publication
 
