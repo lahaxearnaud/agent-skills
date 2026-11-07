@@ -4,16 +4,19 @@ These examples illustrate the profile; they are not copied from a project.
 
 ## PHP: explicit contract in a compatible project
 
-If the surrounding code uses modern typed PHP, keep the contract visible and the change focused:
+If the surrounding code uses PHP 8.2 or later and an immutable, non-extendable class is appropriate, keep the contract visible and the change focused:
 
 ```php
-function isEligible(int $quantity): bool
+final readonly class Eligibility
 {
-    return $quantity > 0;
+    public function isEligible(int $quantity): bool
+    {
+        return $quantity > 0;
+    }
 }
 ```
 
-Do not add `strict_types`, `final`, `readonly` or new service layers to unrelated files merely to imitate the profile. Respect the existing PHP version and project conventions.
+For example, test both positive and zero quantities. Prefer `final` and `readonly` for suitable new classes when the PHP version, behavior and project conventions allow it; do not retrofit unrelated files or prevent required extension or mutation. Extract a service when its complexity, reuse or testability justifies it. Cover each reachable new or modified branch with behavior tests at the lowest faithful layer.
 
 ## JavaScript: match the project module system
 

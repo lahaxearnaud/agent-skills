@@ -1,0 +1,22 @@
+[
+  {
+    "id": "php-branches",
+    "title": "PHP service with behavior branches",
+    "prompt": "Synthetic project: PHP 8.2 and PHPUnit are already installed. Project conventions use namespace App\\Service, explicit types, dependency injection, and no other mandated class modifiers. Create a small service QuoteCalculator with a method shipping(int $items): int. Negative counts must throw InvalidArgumentException; zero items cost 0; at least 5 items cost 0; other positive counts cost 600 cents. Provide production code and the tests you consider appropriate. Explain any meaningful design choice."
+  },
+  {
+    "id": "vue-branches",
+    "title": "Vue and JavaScript behavior",
+    "prompt": "Synthetic project: Vue 3, ES modules, Vitest and Vue Test Utils are already installed. Existing project code uses single-file components and separates pure rules when useful. Implement a quantity input and visible shipping cost: negative values show an error; 0 costs 0; 5 or more costs 0; other positive values cost 600 cents. Provide the component, any helper and the tests you consider appropriate. Explain any meaningful design choice."
+  },
+  {
+    "id": "rust-context",
+    "title": "Rust with existing error conventions",
+    "prompt": "Synthetic project: stable Rust. Existing code returns Result values with a small project-specific error enum; it does not introduce extra dependencies. Implement a function that parses a non-negative integer from a string and returns an error on invalid input or a negative value. Provide the code and the tests you consider appropriate. Explain any meaningful design choice."
+  },
+  {
+    "id": "project-override",
+    "title": "Project version and extension constraints",
+    "prompt": "Synthetic project: PHP 7.4 and PHPUnit are already installed. Project instructions require services to remain extendable for plugins and forbid newer PHP syntax. Add a service method that maps a non-negative item count to shipping cost: 0 or at least 5 costs 0; other positive values cost 600 cents; negative values throw InvalidArgumentException. Provide the code and tests you consider appropriate. Explain any meaningful design choice."
+  }
+]

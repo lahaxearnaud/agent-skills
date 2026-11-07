@@ -89,7 +89,7 @@ Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt
 
 ## Corpus et maintenance
 
-- [Profil code-like-me](skills/development/code-like-me/SKILL.md) : [notes de méthode et limites](skills/development/code-like-me/references/profile.md), [prompt de maintenance](maintenance/development/code-like-me/update-prompt.md) et [scénarios comparatifs](maintenance/development/code-like-me/evaluation.md). Les preuves détaillées issues des dépôts privés restent locales et ne sont pas publiées.
+- [Profil code-like-me](skills/development/code-like-me/SKILL.md) : [notes de méthode et limites](skills/development/code-like-me/references/profile.md), [prompt de maintenance](maintenance/development/code-like-me/update-prompt.md), [scénarios comparatifs](maintenance/development/code-like-me/evaluation.md) et [protocole A/B à l’aveugle](maintenance/development/code-like-me/blind-evaluation.md). Les preuves détaillées issues des dépôts privés restent locales et ne sont pas publiées.
 
 - [Corpus de téléversement](corpus/security/file-upload/README.md) : 34 avis consultés ; voir le [prompt de maintenance](maintenance/security/file-upload-static-review/update-prompt.md) et les [scénarios synthétiques](maintenance/security/file-upload-static-review/evaluation.md).
 
