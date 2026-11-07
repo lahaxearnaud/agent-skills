@@ -21,6 +21,9 @@ npx skills add lahaxearnaud/agent-skills --skill xss-static-review --agent codex
 # Installer la revue statique SQL dans le projet courant
 npx skills add lahaxearnaud/agent-skills --skill sql-injection-static-review --agent codex opencode --yes
 
+# Installer le profil personnel de code pour son utilisateur
+npx skills add lahaxearnaud/agent-skills --skill code-like-me --agent codex opencode --global --yes
+
 # Installer la skill de rédaction des commits sémantiques
 npx skills add lahaxearnaud/agent-skills --skill semantic-commits --agent codex opencode --yes
 
@@ -74,6 +77,7 @@ Les références documentaires utiles à l'analyse sont synthétisées dans chaq
 | Security | [path-traversal-static-review](skills/security/path-traversal-static-review/SKILL.md) | Revue statique des traversées de chemins fichier : lectures/écritures/suppressions, fichiers statiques, templates, archives Zip Slip et symlinks. |
 | Security | [rce-static-review](skills/security/rce-static-review/SKILL.md) | Revue statique des chemins RCE à partir du code : processus/commandes, évaluation dynamique, templates, désérialisation, chargement et chaînes différées. |
 | Security | [isolated-vulnerability-reproduction](skills/security/isolated-vulnerability-reproduction/SKILL.md) | Reproduction jetable minimale dans Docker local; liste d'images par défaut ou remplaçable par l'utilisateur, tag optionnellement filtré par motif et digest obligatoire. |
+| Development | [code-like-me](skills/development/code-like-me/SKILL.md) | Profil personnel anonymisé de rédaction du code, adaptable aux conventions du projet. |
 | Development | [semantic-commits](skills/development/semantic-commits/SKILL.md) | Rédige des commits conventionnels adaptés au parseur et aux règles semantic-release du projet. |
 | Documentation | [adr-authoring](skills/documentation/adr-authoring/SKILL.md) | Rédige, met à jour et indexe les ADR en respectant les conventions du dépôt. |
 | Testing | [test-pyramid](skills/testing/test-pyramid/SKILL.md) | Écrit des tests fonctionnels et de non-régression en choisissant le niveau le plus bas fidèle, sans ratio imposé. |
@@ -84,6 +88,8 @@ Exemple : « Utilise `xss-static-review` pour examiner les sources de ce dépôt
 `isolated-vulnerability-reproduction` est une skill séparée, activée uniquement quand une revue a déjà identifié un doute précis et qu'une preuve minimale est faisable. Elle interdit les cibles réelles, l'exécution sur l'hôte, les montages de chemins hôte et la réinstallation du graphe de dépendances. Quand seule une fonction d'une dépendance est nécessaire, elle demande de copier cette fonction et ses seuls auxiliaires indispensables depuis les sources locales. Le runner transfère le petit espace de travail vers un `tmpfs` interne à un conteneur éphémère. Il autorise par défaut Node, toutes les versions de PHP, Python et Playwright dans les dépôts listés. `ISOLATED_POC_ALLOWED_IMAGES` remplace cette liste et accepte des références registre/dépôt exactes avec `*` uniquement dans le tag. Les hôtes ambigus à un seul label sont refusés pour éviter une résolution implicite vers Docker Hub. La skill inclut des [squelettes reproductibles](skills/security/isolated-vulnerability-reproduction/templates/README.md) pour HTML/navigateur, JavaScript avec Node, JavaScript dans un navigateur et PHP CLI; leur sortie témoin confirme le harnais uniquement, pas une vulnérabilité.
 
 ## Corpus et maintenance
+
+- [Profil code-like-me](skills/development/code-like-me/SKILL.md) : [notes de méthode et limites](skills/development/code-like-me/references/profile.md), [prompt de maintenance](maintenance/development/code-like-me/update-prompt.md) et [scénarios comparatifs](maintenance/development/code-like-me/evaluation.md). Les preuves détaillées issues des dépôts privés restent locales et ne sont pas publiées.
 
 - [Corpus de téléversement](corpus/security/file-upload/README.md) : 34 avis consultés ; voir le [prompt de maintenance](maintenance/security/file-upload-static-review/update-prompt.md) et les [scénarios synthétiques](maintenance/security/file-upload-static-review/evaluation.md).
 

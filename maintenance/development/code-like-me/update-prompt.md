@@ -1,0 +1,5 @@
+# Refresh the personal coding profile
+
+Read repository instructions and the existing skill and evidence summaries. With the owner's authorization, inventory accessible authored commits within the requested date window, segment API searches to avoid result caps and record coverage limits. Keep private source, repository names, patches, identifiers and per-project evidence in a protected local location outside the public repository. Exclude identifiable agent-generated work; do not pretend ambiguous authorship is certain.
+
+Inspect relevant changes and tests, compare recent observations and independent projects, and record conflicting or sparse evidence. Distinguish automated syntax counts from semantic conclusions. Update only anonymized, generalizable preferences with confidence and synthetic examples. Keep the project's conventions and current user request above this profile; preserve safety and correctness. Perform a privacy review of the public diff, check links and skill installation, and document which evaluations actually ran. Do not publish private evidence or claim that skill instructions guarantee automatic invocation in every agent.

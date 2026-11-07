@@ -71,6 +71,8 @@ Do not silently rewrite an accepted ADR. If a decision changes, add a new ADR th
 
 | [0020](docs/adr/0020-allow-all-php-versions-for-isolated-poc.md) | Autoriser toutes les versions de PHP pour les POC isolés | Étend le motif PHP intégré à toutes les versions tout en conservant le tag concret, le digest et la liste utilisateur de remplacement. |
 
+| [0021](docs/adr/0021-personal-code-style-skill.md) | Profil personnel de style de code | Ajoute une skill de préférences conditionnelles anonymisées, avec conventions du projet prioritaires et preuves privées locales. |
+
 ## Git and publication
 
 Check the diff and stage only files for the requested change. A local commit is appropriate when the user requests a repository deliverable. Do not push, publish, open a PR, or merge branches without explicit authorization. If the user authorizes publication, follow the requested branch and integration method; do not infer a standing authorization from an earlier task.
